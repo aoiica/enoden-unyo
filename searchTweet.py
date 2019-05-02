@@ -36,16 +36,24 @@ naueno = 0
 
 def generateNeatList():
     global unyouNeatList
+    global yasumiNeat
+    global naueno
     unyouRoughList = ['1', '2', '3', '4', '5', '6']
 
-    searchResult = api.search(q='#江ノ電運用', result_type='recent', count=2)
+    searchResult = api.search(q='#江ノ電運用 from:enodenwiki', result_type='recent', tweet_mode='extended', count=10)
     #結果から今日のやつだけを抜き出してリストにする。検索は10件で十分？
-    tweetsList = [t.text for t in searchResult if (datetime.datetime.utcnow() + datetime.timedelta(hours=9)).day == (t.created_at + datetime.timedelta(hours=9)).day]
 
+    tweetsList = []
+    for t in searchResult:
+        if (datetime.datetime.utcnow() + datetime.timedelta(hours=9)).day == (t.created_at + datetime.timedelta(hours=9)).day:
+            tweetsList.append(t.full_text)
+            tweetsList.append(t.retweeted_status.full_text)
+
+    #tweetsList = [t.full_text for t in searchResult if (datetime.datetime.utcnow() + datetime.timedelta(hours=9)).day == (t.created_at + datetime.timedelta(hours=9)).day] + [t.retweeted_status.full_text for t in searchResult if (datetime.datetime.utcnow() + datetime.timedelta(hours=9)).day == (t.created_at + datetime.timedelta(hours=9)).day]
 
     # このforが完了すれば、Rough が完成する
     for tweet in tweetsList:
-        if len(unyouRoughList[0]) or len(unyouRoughList[1]) or len(unyouRoughList[2]) or len(unyouRoughList[3]) or len(unyouRoughList[4]) or len(unyouRoughList[5]) < 3:
+        if len(unyouRoughList[0]) or len(unyouRoughList[1]) or len(unyouRoughList[2]) or len(unyouRoughList[3]) or len(unyouRoughList[4]) or len(unyouRoughList[5]) < 2:
             lineList = tweet.split('\n')
             #[n]が一つの場合
             if len(re.findall('\[\d\]', tweet)) == 1:
@@ -54,9 +62,13 @@ def generateNeatList():
                 pmt = 1
                 num = startUnyouNumInt
                 for line in lineList:
-                    if len(re.findall('\d{3,}', line)) >= 1:
+                    if re.search('2019', line):
+                        pass
+                    elif re.search(':', line):
+                        pass
+                    elif len(re.findall('\d{2,}', line)) >= 1:
                         if 1 <= pmt <= honsen:
-                            unyouRoughlist[num-1] = line
+                            unyouRoughList[num-1] = line
                             pmt += 1
                             if num == honsen:
                                 num = 1
@@ -67,10 +79,10 @@ def generateNeatList():
                 for line in lineList:
                     if len(re.findall('\[\d\]', line)) == 1:
                         unyouNumInt = int(re.search('\d', re.search('\[\d\]',   line).group()).group())
-                        if len(unyouRoughList[unyouNumInt-1]) < 3:
+                        if len(unyouRoughList[unyouNumInt-1]) < 2:
                             unyouRoughList[unyouNumInt-1] = line
     #Rough から Neatへ 整える変換をするためのコード
-    unyouListList = [re.findall('\d{3,}', y) for y in unyouRoughList]
+    unyouListList = [re.findall('\d{2,}', y) for y in unyouRoughList]
     for i,list in enumerate(unyouListList):
         otpt = ''
         if len(list) == 2:
@@ -81,18 +93,27 @@ def generateNeatList():
             otpt = '[' +str(i+1) +']'
         unyouNeatList[i] = otpt
 
+
     #def generateYasumiList():
         #global yasumiNeat
     yasumiRoughTxt = ''
     for tweet in tweetsList:
         lineList = tweet.split('\n')
         for line in lineList:
-            if re.search('休', line):
+            if len(yasumiRoughTxt) < 1 and re.search('休', line):
                 yasumiRoughTxt = line
-    yasumiList = [re.findall('\d{3,}', y) for y in yasumiRoughTxt]
+    yasumiList = re.findall('\d{2,}', yasumiRoughTxt)
     for h in yasumiList:
         yasumiNeat += str(h) + 'F' + ' '
     #generateNeatList()
+
+    #なうえの
+    for tweet in tweetsList:
+        lineList = tweet.split('\n')
+        for line in lineList:
+            if naueno == 0 and re.search('\(\+\d+', line):
+                naueno = int(re.search('\d+', re.search('\(\+\d+', line).group()).group())
+
 
 
 
