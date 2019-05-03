@@ -28,8 +28,8 @@ def postTweet():
 
 
 
-honsen = 6
-unyouNeatList = ['[1]', '[2]', '[3]', '[4]', '[5]', '[6]']
+honsen = 7
+unyouNeatList = ['[1]', '[2]', '[3]', '[4]', '[5]', '[6]', '[7]']
 yasumiNeat = ''
 naueno = 0
 
@@ -38,16 +38,20 @@ def generateNeatList():
     global unyouNeatList
     global yasumiNeat
     global naueno
-    unyouRoughList = ['1', '2', '3', '4', '5', '6']
+    unyouRoughList = ['1', '2', '3', '4', '5', '6', '7']
 
     searchResult = api.search(q='#江ノ電運用 from:enodenwiki', result_type='recent', tweet_mode='extended', count=10)
     #結果から今日のやつだけを抜き出してリストにする。検索は10件で十分？
 
     tweetsList = []
+    jstDiff = datetime.timedelta(hours=9)
+    def jstToday():
+        return (datetime.datetime.utcnow() + jstDiff).day == (t.created_at + jstDiff).day
     for t in searchResult:
-        if (datetime.datetime.utcnow() + datetime.timedelta(hours=9)).day == (t.created_at + datetime.timedelta(hours=9)).day:
+        if jstToday():
             tweetsList.append(t.full_text)
-            tweetsList.append(t.retweeted_status.full_text)
+            if hasattr(t, 'retweeted_status'):
+                tweetsList.append(t.retweeted_status.full_text)
 
     #tweetsList = [t.full_text for t in searchResult if (datetime.datetime.utcnow() + datetime.timedelta(hours=9)).day == (t.created_at + datetime.timedelta(hours=9)).day] + [t.retweeted_status.full_text for t in searchResult if (datetime.datetime.utcnow() + datetime.timedelta(hours=9)).day == (t.created_at + datetime.timedelta(hours=9)).day]
 
