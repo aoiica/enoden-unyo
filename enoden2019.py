@@ -19,9 +19,8 @@ unyouDnmList = [0,    1, 2, 3, 4, 5, 6,    7, 8, 9]
 # 段落としに楽に変更できるように
 roku = 6
 nana = 7
-#honsen = today.honsen
+honsen = today.honsen
 kmkrPltf = 3
-honsen = 7
 # 運用バケツ　Fがついていようとなかろうと+だろうと-だろうと、とりあえず突っ込む。あとでよしなにする。
 un1 = today.un1
 un2 = today.un2
@@ -331,3 +330,5 @@ ekiDictE = {}
 cars = [305, 1001, 1002, 1101, 1201, 1501, 1502, 2001, 2002, 2003, 10, 21, 22, 501, 502]
 
 paternDiya = '0617->935'
+
+jikokuhyo = 'http://enoden.wiki.fc2.com/wiki/時刻表'
