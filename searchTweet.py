@@ -45,13 +45,13 @@ def generateNeatList():
 
     tweetsList = []
     jstDiff = datetime.timedelta(hours=9)
-    def jstToday():
-        return (datetime.datetime.utcnow() + jstDiff).day == (t.created_at + jstDiff).day
-    for t in searchResult:
-        if jstToday():
-            tweetsList.append(t.full_text)
-            if hasattr(t, 'retweeted_status'):
-                tweetsList.append(t.retweeted_status.full_text)
+    def wasToday():
+        return (datetime.datetime.utcnow() + jstDiff).day == (tweetObj.created_at + jstDiff).day
+    for tweetObj in searchResult:
+        if wasToday():
+            tweetsList.append(tweetObj.full_text)
+            if hasattr(tweetObj, 'retweeted_status'):
+                tweetsList.append(tweetObj.retweeted_status.full_text)
 
     #tweetsList = [t.full_text for t in searchResult if (datetime.datetime.utcnow() + datetime.timedelta(hours=9)).day == (t.created_at + datetime.timedelta(hours=9)).day] + [t.retweeted_status.full_text for t in searchResult if (datetime.datetime.utcnow() + datetime.timedelta(hours=9)).day == (t.created_at + datetime.timedelta(hours=9)).day]
 
