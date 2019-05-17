@@ -33,7 +33,7 @@ let un7 = '[7]';
 // 休みバケツ
 let yasumi = '';
 // なうえの
-const naueno = 2;
+const naueno = 0;
 
 
 
@@ -48,6 +48,10 @@ let nowMinNaueno = nowTime.getMinutes();
 
 function nowTimeDef(){
   nowTime = new Date();
+  timeUpdater();
+}
+
+function timeUpdater(){
   nowTimeNaueno = new Date();
   nowTimeNaueno.setMinutes(nowTime.getMinutes() - naueno);
   nowHourNaueno = nowTimeNaueno.getHours();
@@ -73,14 +77,20 @@ const stateDict6 = {
     21:[0,   24, 12, 0, -12, -24, -36,   27, 27, 12],
     }
 
-function jumpState(){
-    nowTimeDef()
-    unyouDnmList = eval('stateDict' +String(honsen))[nowHourNaueno]
+function jumpStateHour(){
+    //nowTimeDef();
+    //unyouDnmList = eval('stateDict' +String(honsen))[nowHourNaueno];
+    unyouDnmList = Array.from(stateDict6[nowHourNaueno]);
+    console.log(nowHourNaueno+'nHN');
+    console.log(stateDict6[20]+'sD62020');
+    //console.log(stateDict6[Number(nowHourNaueno)]+'sD6');
+    console.log(unyouDnmList+'uDL');
+    console.log('------------------------');
 }
 
 function add1min(){
     for(let [i, fig] of unyouDnmList.entries()){
-        if(1 <= i <= honsen){
+        if(1 <= i && i <= honsen){
             if(honsen == 6){
                 if(fig < 36){
                     fig += 1;
@@ -99,7 +109,7 @@ function add1min(){
                     fig += 1;
         }}}
         unyouDnmList[i] = fig
-}}
+}console.log(stateDict6[20]+'sD62020add1111');}
 
 
 
@@ -107,13 +117,16 @@ function add1min(){
 
 
 // <ここから処理を起動しはじめるゾーン>
-// 起動時の処理 (とスケジューラーの起動:今使ってない)
-function starter(){
-jumpState()
 
+function starter(){
+jumpStateHour()
 Array.from(Array(nowMinNaueno).keys()).forEach(i => add1min());
-console.log(String(unyouDnmList) + "now;init");
+
+console.log(String(unyouDnmList) + "now;init-uDL");
+console.log(stateDict6[20]+'sD62020addadd');
 }
+// 起動時の処理 (とスケジューラーの起動:今使ってない)
+nowTimeDef();
 starter();
 /*
 for(i=0; i<nowMinNaueno; i++){
@@ -123,7 +136,7 @@ console.log(String(unyouDnmList) + "now;init");
 */
 /*
 if(7 <= nowHourNaueno <= 20){
-  jumpState()
+  jumpStateHour()
   for(i=0; i<nowMinNaueno; i++){
     add1min();
   console.log(String(unyouDnmList) + "now;init");
@@ -263,7 +276,6 @@ class Train{
     this.midY = wMid+Math.sign(umiYama(this.i) - wMid)*basePhase;
     this.topY = wMid+Math.sign(umiYama(this.i) - wMid)*basePhase*2;
     this.umiYamaY = umiYama(this.i);
-    console.log(this.itiX);
   }
   render(context){
     context.beginPath();
@@ -329,17 +341,33 @@ rangeSS(1,honsen+1).forEach((num) => moveObjects.push(new Train(num)));
 
 
 // <繰り返しとか実装>
-function loop() {
-  add1min();
+function draw(){
   context.clearRect(0, 0, WIDTH, HEIGHT);
   moveObjects.forEach((obj) => obj.update());
   stationObjects.forEach((obj) => obj.render(context));
   moveObjects.forEach((obj) => obj.render(context));
-  console.log('called');
-  console.log(unyouDnmList);
+}
+
+function loop() {
+  nowTimeDef();
+  add1min();
+  document.querySelector('input[type="time"]').value = String(nowHourNaueno+':'+nowMinNaueno);
+  draw();
   //window.requestAnimationFrame((ts) => loop(ts));
 }
 //window.requestAnimationFrame((ts) => loop(ts));
+
+
+document.getElementById("timeSelector").addEventListener('change',(times) => {
+  if (!document.getElementById("toggleSwitch").checked) {
+    onsole.log('times');
+    nowTime = times;
+    timeUpdater();
+    starter();
+    draw();
+  }
+}, false);
+
 
 let intervalID = -1;
 document.getElementById("toggleSwitch").addEventListener('change',(e) => {
@@ -350,8 +378,9 @@ document.getElementById("toggleSwitch").addEventListener('change',(e) => {
     intervalID = -1;
     return;
   }
-  starter()
-  intervalID = window.setInterval(()=>{loop()}, 1000);
+  nowTimeDef();
+  starter();
+  intervalID = window.setInterval(()=>{loop()}, 500);
 }, false);
 
 
