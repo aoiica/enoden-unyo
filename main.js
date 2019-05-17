@@ -360,8 +360,8 @@ function loop() {
 
 document.getElementById("timeSelector").addEventListener('change',(times) => {
   if (!document.getElementById("toggleSwitch").checked) {
-    onsole.log('times');
-    nowTime = times;
+    onsole.log(times);
+    nowTime = new Date('2019'+times);
     timeUpdater();
     starter();
     draw();
