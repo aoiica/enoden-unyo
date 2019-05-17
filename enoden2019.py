@@ -94,16 +94,20 @@ def fromBucketToYasumi():
 
 # <時刻を変化させる処理>
 # 現在時刻
-
-ddn = datetime.datetime.now()
-nowHour = ddn.hour
-nowMin = ddn.minute
+nowDdn = datetime.datetime.now()
+nowHour = nowDdn.hour
+nowMin = nowDdn.minute
+def nowDdnDef():
+    global nowDdn
+    nowDdn = datetime.datetime.now()
 def nowHourDef():
     global nowHour
-    nowHour = ddn.hour
+    nowDdnDef()
+    nowHour = nowHour
 def nowMinDef():
     global nowMin
-    nowMin = ddn.minute
+    nowDdnDef()
+    nowMin = nowMin
 '''
 # テスト
 ddn = 2100
@@ -167,8 +171,10 @@ def jumpState():
 def jump_state_minute():
     global unyouDnmList
     attracted_minute_list = []
-    attracted_minute_list = eval('every_min_dict').get(eval(str(int(ddn.strftime('%H%M')))))
-    print(ddn)
+    nowDdnDef()
+    attracted_minute_list = eval('every_min_dict').get(eval(str(int(nowDdn.strftime('%H%M')))))
+    print(nowDdn.strftime('%H%M'))
+    print(nowDdn)
     for i,(a,d) in enumerate(zip(attracted_minute_list, unyouDnmList)):
         if a == 204:
             unyouDnmList[i] = d + 1
