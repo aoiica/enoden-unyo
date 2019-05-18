@@ -251,7 +251,7 @@ class Single{
   }
 }
 
-const iro = ['white', 'yellow', 'lightGreen', 'orange', 'violet', 'pink', 'SkyBlue', 'purple']
+const iro = ['white', 'orange', 'green', 'red', 'purple', 'pink', 'skyblue', 'yellow']
 class Train{
   constructor(i){
     this.i = i;
@@ -294,7 +294,6 @@ class Train{
     context.textAlign = 'center';
     context.textBaseline = 'middle';
     context.font = '12px sans-serif';
-    context.font = '12px serif';
     context.fillText(this.text, this.itiX, this.umiYamaY);
   }
 }
@@ -345,7 +344,6 @@ function draw(){
 
 function loop() {
   nowTimeDef();
-  add1min();
   document.getElementById('timeSelector').value = String(nowHourNaueno+':'+nowMinNaueno);
   draw();
   //window.requestAnimationFrame((ts) => loop(ts));
@@ -391,8 +389,10 @@ document.getElementById("toggleSwitch").addEventListener('change',(e) => {
   }
   nowTimeDef();
   starter();
-  intervalID = window.setInterval(()=>{loop()}, 500);
+  loop();
+  intervalID = window.setInterval(()=>{add1min();loop();}, 500);
 }, false);
 
 
-console.log('piyo')
+loop();
+console.log('piyo');
