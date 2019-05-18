@@ -40,22 +40,22 @@ let naueno = 0;
 
 // <時刻を変化させる処理>
 // 現在時刻
-let nowTime = new Date();
-let nowTimeNaueno = new Date();
-nowTimeNaueno.setMinutes(nowTime.getMinutes() - naueno);
-let nowHourNaueno = nowTime.getHours();
-let nowMinNaueno = nowTime.getMinutes();
+let theTime = new Date();
+let theTimeNaueno = new Date();
+theTimeNaueno.setMinutes(theTime.getMinutes() - naueno);
+let nowHourNaueno = theTime.getHours();
+let nowMinNaueno = theTime.getMinutes();
 
-function nowTimeDef(){
-  nowTime = new Date();
-  timeUpdater();
+function setTheTimeNow(){
+  theTime = new Date();
+  pourTheTimeIntoNaueno();
 }
 
-function timeUpdater(){
-  nowTimeNaueno = nowTime;
-  nowTimeNaueno.setMinutes(nowTime.getMinutes() - naueno);
-  nowHourNaueno = nowTimeNaueno.getHours();
-  nowMinNaueno = nowTimeNaueno.getMinutes();
+function pourTheTimeIntoNaueno(){
+  theTimeNaueno = theTime;
+  theTimeNaueno.setMinutes(theTime.getMinutes() - naueno);
+  nowHourNaueno = theTimeNaueno.getHours();
+  nowMinNaueno = theTimeNaueno.getMinutes();
 }
 
 
@@ -77,13 +77,12 @@ const stateDict6 = {
     21:[0,   24, 12, 0, -12, -24, -36,   27, 27, 12],
     }
 
-function jumpStateHour(){
-    //nowTimeDef();
-    //unyouDnmList = eval('stateDict' +String(honsen))[nowHourNaueno];
+function setUDLasTheHour(){
     unyouDnmList = Array.from(eval('stateDict' +String(honsen))[nowHourNaueno]);
 }
 
-function add1min(){
+
+function setUDLadd1min(){
     for(let [i, fig] of unyouDnmList.entries()){
         if(1 <= i && i <= honsen){
             if(honsen == 6){
@@ -107,32 +106,29 @@ function add1min(){
 }}
 
 
-
-
-
-
-// <ここから処理を起動しはじめるゾーン>
-
-function starter(){
-jumpStateHour()
-Array.from(Array(nowMinNaueno).keys()).forEach(i => add1min());
+function setUDLasTheTime(){
+setUDLasTheHour()
+Array.from(Array(nowMinNaueno).keys()).forEach(i => setUDLadd1min());
 
 console.log(String(unyouDnmList) + "now;init-uDL");
 }
-// 起動時の処理 (とスケジューラーの起動:今使ってない)
-nowTimeDef();
-starter();
+
+
+// <ここから処理を起動しはじめるゾーン>
+// 起動時の処理
+setTheTimeNow();
+setUDLasTheTime();
 /*
 for(i=0; i<nowMinNaueno; i++){
-  add1min();
+  setUDLadd1min();
 console.log(String(unyouDnmList) + "now;init");
 }
 */
 /*
 if(7 <= nowHourNaueno <= 20){
-  jumpStateHour()
+  setUDLasTheHour()
   for(i=0; i<nowMinNaueno; i++){
-    add1min();
+    setUDLadd1min();
   console.log(String(unyouDnmList) + "now;init");
   }
 }else if(5 <= nowHourNaueno <= 6){
@@ -325,6 +321,7 @@ const kmkr = new Terminal(36);
 const stationObjects = [mainLine, fuji, isgm, yngk, kgnm, shkk, ensm, ksge, kkme, ming, schr, inmr, gkrk, hase, yghm, wddk, kmkr];
 const moveObjects = [];
 
+
 const rangeSS = (start,stop) => {return Array.from(Array(stop-start).keys(), x => x+start)}
 
 rangeSS(1,honsen+1).forEach((num) => moveObjects.push(new Train(num)));
@@ -340,12 +337,8 @@ function draw(){
   moveObjects.forEach((obj) => obj.update());
   stationObjects.forEach((obj) => obj.render(context));
   moveObjects.forEach((obj) => obj.render(context));
-}
 
-function loop() {
-  nowTimeDef();
   document.getElementById('timeSelector').value = String(nowHourNaueno+':'+nowMinNaueno);
-  draw();
   //window.requestAnimationFrame((ts) => loop(ts));
 }
 //window.requestAnimationFrame((ts) => loop(ts));
@@ -353,32 +346,35 @@ function loop() {
 
 document.getElementById("nauenoSetter").addEventListener('input',() => {
   naueno = Number(document.getElementById("nauenoSetter").value);
-  console.log(naueno);
 }, false);
 
 
 document.getElementById("unyoInputter").addEventListener('input',() => {
- document.getElementById("unyoInputter").value.split('\n').forEach((currentValue, index)=>{
+  //テキストエリアの文字をunxにそれぞれ突っ込んでる
+  document.getElementById("unyoInputter").value.split('\n').forEach((currentValue, index)=>{
     let currentValueS = String(currentValue)
     eval('un'+String(index+1) +' = \"'+ currentValueS+'\";');
   });
+  draw();
 }, false);
 
 
-let timeSelector = document.getElementById("timeSelector")
-timeSelector.addEventListener('input',() => {
+document.getElementById("timeSelector").addEventListener('input',() => {
   if (!document.getElementById("toggleSwitch").checked) {
-    nowTimeDef();
-    let ymdhm = '2019/'+String(nowTime.getMonth())+'/'+String(nowTime.getDate())+' '+String(timeSelector.value);
-    nowTime = new Date(ymdhm);
-    timeUpdater();
-    starter();
+    setTheTimeNow();
+
+    let ymdhm = '2019/'+String(theTime.getMonth())+'/'+String(theTime.getDate())+' '+String(document.getElementById("timeSelector").value);
+
+    theTime = new Date(ymdhm);
+    pourTheTimeIntoNaueno();
+    setUDLasTheTime();
     draw();
   }
 }, false);
 
 
 let intervalID = -1;
+
 document.getElementById("toggleSwitch").addEventListener('change',(e) => {
   e.preventDefault();
   if (!document.getElementById("toggleSwitch").checked) {
@@ -387,12 +383,17 @@ document.getElementById("toggleSwitch").addEventListener('change',(e) => {
     intervalID = -1;
     return;
   }
-  nowTimeDef();
-  starter();
-  loop();
-  intervalID = window.setInterval(()=>{add1min();loop();}, 500);
+  setTheTimeNow();
+  pourTheTimeIntoNaueno();
+  setUDLasTheTime();
+  draw();
+  intervalID = window.setInterval(()=>{
+    setTheTimeNow();
+    pourTheTimeIntoNaueno();
+    setUDLadd1min();
+    draw();}, 500);
 }, false);
 
 
-loop();
+draw();
 console.log('piyo');
