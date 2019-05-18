@@ -33,7 +33,7 @@ let un7 = '[7]';
 // 休みバケツ
 let yasumi = '';
 // なうえの
-const naueno = 0;
+let naueno = 0;
 
 
 
@@ -52,7 +52,7 @@ function nowTimeDef(){
 }
 
 function timeUpdater(){
-  nowTimeNaueno = new Date();
+  nowTimeNaueno = nowTime;
   nowTimeNaueno.setMinutes(nowTime.getMinutes() - naueno);
   nowHourNaueno = nowTimeNaueno.getHours();
   nowMinNaueno = nowTimeNaueno.getMinutes();
@@ -353,14 +353,18 @@ function loop() {
 //window.requestAnimationFrame((ts) => loop(ts));
 
 
+document.getElementById("nauenoSetter").addEventListener('input',() => {
+  naueno = Number(document.getElementById("nauenoSetter").value);
+  console.log(naueno);
+}, false);
+
 
 document.getElementById("unyoInputter").addEventListener('input',() => {
  document.getElementById("unyoInputter").value.split('\n').forEach((currentValue, index)=>{
     let currentValueS = String(currentValue)
     eval('un'+String(index+1) +' = \"'+ currentValueS+'\";');
   });
-  console.log(un1);
-})
+}, false);
 
 
 let timeSelector = document.getElementById("timeSelector")
