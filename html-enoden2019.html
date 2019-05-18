@@ -23,7 +23,20 @@
 
 
 <body>
+  <p>
+  <form action="cgi-bin/formmail.cgi" method="post">
+<textarea id="unyoInputter" rows="7" cols="40">
+[1]
+[2]
+[3]
+[4]
+[5]
+[6]</textarea>
+  <!--<input type="reset" value="編成リセット">-->
+  </form>
+  <input type="time" id="timeSelector" name="times" min="07:00" max="21:59" value="09:00">
   <input type="checkbox" id="toggleSwitch"/>
+  </p>
   <!--<button id="interval">スタート</button>-->
 </body>
 <script src="main.js" defer></script>

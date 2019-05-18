@@ -80,12 +80,7 @@ const stateDict6 = {
 function jumpStateHour(){
     //nowTimeDef();
     //unyouDnmList = eval('stateDict' +String(honsen))[nowHourNaueno];
-    unyouDnmList = Array.from(stateDict6[nowHourNaueno]);
-    console.log(nowHourNaueno+'nHN');
-    console.log(stateDict6[20]+'sD62020');
-    //console.log(stateDict6[Number(nowHourNaueno)]+'sD6');
-    console.log(unyouDnmList+'uDL');
-    console.log('------------------------');
+    unyouDnmList = Array.from(eval('stateDict' +String(honsen))[nowHourNaueno]);
 }
 
 function add1min(){
@@ -109,7 +104,7 @@ function add1min(){
                     fig += 1;
         }}}
         unyouDnmList[i] = fig
-}console.log(stateDict6[20]+'sD62020add1111');}
+}}
 
 
 
@@ -123,7 +118,6 @@ jumpStateHour()
 Array.from(Array(nowMinNaueno).keys()).forEach(i => add1min());
 
 console.log(String(unyouDnmList) + "now;init-uDL");
-console.log(stateDict6[20]+'sD62020addadd');
 }
 // 起動時の処理 (とスケジューラーの起動:今使ってない)
 nowTimeDef();
@@ -276,6 +270,7 @@ class Train{
     this.midY = wMid+Math.sign(umiYama(this.i) - wMid)*basePhase;
     this.topY = wMid+Math.sign(umiYama(this.i) - wMid)*basePhase*2;
     this.umiYamaY = umiYama(this.i);
+    this.text = eval('un' + this.i)
   }
   render(context){
     context.beginPath();
@@ -358,10 +353,22 @@ function loop() {
 //window.requestAnimationFrame((ts) => loop(ts));
 
 
-document.getElementById("timeSelector").addEventListener('change',(times) => {
+
+document.getElementById("unyoInputter").addEventListener('input',() => {
+ document.getElementById("unyoInputter").value.split('\n').forEach((currentValue, index)=>{
+    let currentValueS = String(currentValue)
+    eval('un'+String(index+1) +' = \"'+ currentValueS+'\";');
+  });
+  console.log(un1);
+})
+
+
+let timeSelector = document.getElementById("timeSelector")
+timeSelector.addEventListener('input',() => {
   if (!document.getElementById("toggleSwitch").checked) {
-    console.log(times);
-    nowTime = new Date('2019'+times);
+    nowTimeDef();
+    let ymdhm = '2019/'+String(nowTime.getMonth())+'/'+String(nowTime.getDate())+' '+String(timeSelector.value);
+    nowTime = new Date(ymdhm);
     timeUpdater();
     starter();
     draw();
