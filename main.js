@@ -46,12 +46,12 @@ theTimeNaueno.setMinutes(theTime.getMinutes() - naueno);
 let nowHourNaueno = theTime.getHours();
 let nowMinNaueno = theTime.getMinutes();
 
-function setTheTimeNow(){
+function G_setTheTimeNowANDpourIntoNaueno(){
   theTime = new Date();
-  pourTheTimeIntoNaueno();
+  G_pourTheTimeIntoNaueno();
 }
 
-function pourTheTimeIntoNaueno(){
+function G_pourTheTimeIntoNaueno(){
   theTimeNaueno = theTime;
   theTimeNaueno.setMinutes(theTime.getMinutes() - naueno);
   nowHourNaueno = theTimeNaueno.getHours();
@@ -77,12 +77,12 @@ const stateDict6 = {
     21:[0,   24, 12, 0, -12, -24, -36,   27, 27, 12],
     }
 
-function setUDLasTheHour(){
-    unyouDnmList = Array.from(eval('stateDict' +String(honsen))[nowHourNaueno]);
+function G_setUDLasTheHour(){
+  unyouDnmList = Array.from(eval('stateDict' +String(honsen))[nowHourNaueno]);
 }
 
 
-function setUDLadd1min(){
+function G_setUDLadd1min(){
     for(let [i, fig] of unyouDnmList.entries()){
         if(1 <= i && i <= honsen){
             if(honsen == 6){
@@ -106,9 +106,9 @@ function setUDLadd1min(){
 }}
 
 
-function setUDLasTheTime(){
-setUDLasTheHour()
-Array.from(Array(nowMinNaueno).keys()).forEach(i => setUDLadd1min());
+function G_setUDLasTheTime(){
+G_setUDLasTheHour()
+Array.from(Array(nowMinNaueno).keys()).forEach(i => G_setUDLadd1min());
 
 console.log(String(unyouDnmList) + "now;init-uDL");
 }
@@ -116,19 +116,19 @@ console.log(String(unyouDnmList) + "now;init-uDL");
 
 // <ここから処理を起動しはじめるゾーン>
 // 起動時の処理
-setTheTimeNow();
-setUDLasTheTime();
+G_setTheTimeNowANDpourIntoNaueno();
+G_setUDLasTheTime();
 /*
 for(i=0; i<nowMinNaueno; i++){
-  setUDLadd1min();
+  G_setUDLadd1min();
 console.log(String(unyouDnmList) + "now;init");
 }
 */
 /*
 if(7 <= nowHourNaueno <= 20){
-  setUDLasTheHour()
+  G_setUDLasTheHour()
   for(i=0; i<nowMinNaueno; i++){
-    setUDLadd1min();
+    G_setUDLadd1min();
   console.log(String(unyouDnmList) + "now;init");
   }
 }else if(5 <= nowHourNaueno <= 6){
@@ -152,21 +152,21 @@ const baseLength = 36 * baseExpander;  /*720*/
 const baseX = (wWidth - baseLength) / 2;  /*40*/
 const basePhase = 4;
 
-function baser(eki36){
+function R_baser(eki36){
   return Number(eki36) * baseExpander + baseX
 }
 
-function iti(i) {
+function R_iti(i) {
   let eki_abs = 0;
   if(Math.abs(unyouDnmList[i]) > 36){
-    eki_abs = baser(36);
+    eki_abs = R_baser(36);
   }else{
-    eki_abs = baser(Math.abs(unyouDnmList[i]));
+    eki_abs = R_baser(Math.abs(unyouDnmList[i]));
   }
   return eki_abs;
 }
 
-function umiYama(i){
+function Rg_umiYama(i){
   const yama = wMid-basePhase*4;
   const umi = wMid+basePhase*4;
   if(Math.abs(unyouDnmList[i]) >= 36){
@@ -204,9 +204,9 @@ class MainLine{
 
 class Terminal{
   constructor(eki36){
-    this.sx = baser(eki36)-(basePhase+basePhase/4);
+    this.sx = R_baser(eki36)-(basePhase+basePhase/4);
     this.sy = wMid-basePhase;
-    this.ex = baser(eki36)+(basePhase+basePhase/4);
+    this.ex = R_baser(eki36)+(basePhase+basePhase/4);
     this.ey = wMid+basePhase;
     this.width = this.ex - this.sx;
     this.height = this.ey - this.sy;
@@ -219,7 +219,7 @@ class Terminal{
 
 class Double{
   constructor(eki36){
-    this.cx = baser(eki36)
+    this.cx = R_baser(eki36)
     this.cy = wMid;
     this.r = basePhase;
     this.sa = 0;
@@ -234,9 +234,9 @@ class Double{
 
 class Single{
   constructor(eki36){
-    this.sx = baser(eki36);
+    this.sx = R_baser(eki36);
     this.sy = wMid-basePhase;
-    this.ex = baser(eki36);
+    this.ex = R_baser(eki36);
     this.ey = wMid+basePhase;
   }
   render(context){
@@ -251,21 +251,21 @@ const iro = ['white', 'orange', 'green', 'red', 'purple', 'pink', 'skyblue', 'ye
 class Train{
   constructor(i){
     this.i = i;
-    this.itiX = iti(i);
-    this.itiPlus = iti(i)+(basePhase*2-basePhase/4);
-    this.itiMinus = iti(i)-(basePhase*2-basePhase/4);
-    this.midY = wMid+((umiYama(i) - wMid)**0)*basePhase;
-    this.topY = wMid+((umiYama(i) - wMid)**0)*basePhase*2;
-    this.umiYamaY = umiYama(i);
+    this.itiX = R_iti(i);
+    this.itiPlus = R_iti(i)+(basePhase*2-basePhase/4);
+    this.itiMinus = R_iti(i)-(basePhase*2-basePhase/4);
+    this.midY = wMid+((Rg_umiYama(i) - wMid)**0)*basePhase;
+    this.topY = wMid+((Rg_umiYama(i) - wMid)**0)*basePhase*2;
+    this.umiYamaY = Rg_umiYama(i);
     this.text = eval('un' + i)
   }
   update(){ //thisの寿命ってどんな感じやねん。これ動くの？
-    this.itiX = iti(this.i);
-    this.itiPlus = iti(this.i)+(basePhase*2-basePhase/4);
-    this.itiMinus = iti(this.i)-(basePhase*2-basePhase/4);
-    this.midY = wMid+Math.sign(umiYama(this.i) - wMid)*basePhase;
-    this.topY = wMid+Math.sign(umiYama(this.i) - wMid)*basePhase*2;
-    this.umiYamaY = umiYama(this.i);
+    this.itiX = R_iti(this.i);
+    this.itiPlus = R_iti(this.i)+(basePhase*2-basePhase/4);
+    this.itiMinus = R_iti(this.i)-(basePhase*2-basePhase/4);
+    this.midY = wMid+Math.sign(Rg_umiYama(this.i) - wMid)*basePhase;
+    this.topY = wMid+Math.sign(Rg_umiYama(this.i) - wMid)*basePhase*2;
+    this.umiYamaY = Rg_umiYama(this.i);
     this.text = eval('un' + this.i)
   }
   render(context){
@@ -332,7 +332,7 @@ rangeSS(1,honsen+1).forEach((num) => moveObjects.push(new Train(num)));
 
 
 // <繰り返しとか実装>
-function draw(){
+function N_draw(){
   context.clearRect(0, 0, WIDTH, HEIGHT);
   moveObjects.forEach((obj) => obj.update());
   stationObjects.forEach((obj) => obj.render(context));
@@ -355,20 +355,20 @@ document.getElementById("unyoInputter").addEventListener('input',() => {
     let currentValueS = String(currentValue)
     eval('un'+String(index+1) +' = \"'+ currentValueS+'\";');
   });
-  draw();
+  N_draw();
 }, false);
 
 
 document.getElementById("timeSelector").addEventListener('input',() => {
   if (!document.getElementById("toggleSwitch").checked) {
-    setTheTimeNow();
+    G_setTheTimeNowANDpourIntoNaueno();
 
     let ymdhm = '2019/'+String(theTime.getMonth())+'/'+String(theTime.getDate())+' '+String(document.getElementById("timeSelector").value);
 
     theTime = new Date(ymdhm);
-    pourTheTimeIntoNaueno();
-    setUDLasTheTime();
-    draw();
+    G_pourTheTimeIntoNaueno();
+    G_setUDLasTheTime();
+    N_draw();
   }
 }, false);
 
@@ -383,17 +383,15 @@ document.getElementById("toggleSwitch").addEventListener('change',(e) => {
     intervalID = -1;
     return;
   }
-  setTheTimeNow();
-  pourTheTimeIntoNaueno();
-  setUDLasTheTime();
-  draw();
+  G_setTheTimeNowANDpourIntoNaueno();
+  G_setUDLasTheTime();
+  N_draw();
   intervalID = window.setInterval(()=>{
-    setTheTimeNow();
-    pourTheTimeIntoNaueno();
-    setUDLadd1min();
-    draw();}, 500);
+    G_setTheTimeNowANDpourIntoNaueno();
+    G_setUDLadd1min();
+    N_draw();}, 500);
 }, false);
 
 
-draw();
+N_draw();
 console.log('piyo');
