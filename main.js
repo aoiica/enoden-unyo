@@ -346,7 +346,7 @@ function draw(){
 function loop() {
   nowTimeDef();
   add1min();
-  document.querySelector('input[type="time"]').value = String(nowHourNaueno+':'+nowMinNaueno);
+  document.getElementById('timeSelector').value = String(nowHourNaueno+':'+nowMinNaueno);
   draw();
   //window.requestAnimationFrame((ts) => loop(ts));
 }
