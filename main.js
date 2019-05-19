@@ -47,9 +47,8 @@ theTimeNaueno.setMinutes(theTime.getMinutes() - naueno);
 let nowHourNaueno = theTimeNaueno.getHours();
 let nowMinNaueno = theTimeNaueno.getMinutes();
 
-function G_setTheTimeNowANDpourIntoNaueno(){
+function G_setTheTimeNow(){
   theTime = new Date();
-  G_pourTheTimeIntoNaueno();
 }
 
 function G_pourTheTimeIntoNaueno(){
@@ -117,7 +116,8 @@ console.log(String(unyouDnmList) + "now;init-uDL");
 
 // <ここから処理を起動しはじめるゾーン>
 // 起動時の処理
-G_setTheTimeNowANDpourIntoNaueno();
+G_setTheTimeNow();
+G_pourTheTimeIntoNaueno();
 G_setUDLasTheTime();
 /*
 for(i=0; i<nowMinNaueno; i++){
@@ -349,19 +349,19 @@ function N_drawTimeInHTML(){
 
 
 function RG_eatherTimesAreNOTSame(){
-  G_setTheTimeNowANDpourIntoNaueno();
+  G_setTheTimeNow();
   let TTC = theTimeForComparison.getMinutes();
   let TT = theTime.getMinutes();
   return !(TTC == TT);
 
 }
-
 //変数じゃなくて(配列?)オブジェクトに時間数値突っ込めばいいかも
 //そのうちラベルに書き換える
 function G_loop(timestamp){
   if(RG_eatherTimesAreNOTSame()){
     theTimeForComparison = new Date();
-    G_setTheTimeNowANDpourIntoNaueno();
+    G_setTheTimeNow();
+    G_pourTheTimeIntoNaueno();
     G_setUDLadd1min();
     N_draw();
   }
@@ -371,6 +371,7 @@ function G_loop(timestamp){
   //requestId = window.requestAnimationFrame(G_loop); //戻り値を取得
   //window.cancelAnimationFrame(requestId);
 };
+
 
 
 
@@ -391,7 +392,7 @@ document.getElementById("unyoInputter").addEventListener('input',() => {
 
 document.getElementById("timeSelector").addEventListener('input',() => {
   if (!document.getElementById("toggleSwitch").checked) {
-    G_setTheTimeNowANDpourIntoNaueno();
+    G_setTheTimeNow();
 
     let ymdhm = '2019/'+String(theTime.getMonth())+'/'+String(theTime.getDate())+' '+String(document.getElementById("timeSelector").value);
 
@@ -407,7 +408,8 @@ document.getElementById("toggleSwitch").addEventListener('change',(e) => {
   e.preventDefault();
   if (document.getElementById("toggleSwitch").checked) {
     theTimeForComparison = new Date();
-    G_setTheTimeNowANDpourIntoNaueno();
+    G_setTheTimeNow();
+    G_pourTheTimeIntoNaueno();
     G_setUDLasTheTime();
     N_draw();
     window.requestAnimationFrame(G_loop);
