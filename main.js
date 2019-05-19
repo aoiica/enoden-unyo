@@ -319,12 +319,11 @@ const yghm = new Single(32);
 const wddk = new Single(34);
 const kmkr = new Terminal(36);
 
+
 const stationObjects = [mainLine, fuji, isgm, yngk, kgnm, shkk, ensm, ksge, kkme, ming, schr, inmr, gkrk, hase, yghm, wddk, kmkr];
+
 const moveObjects = [];
-
-
 const rangeSS = (start,stop) => {return Array.from(Array(stop-start).keys(), x => x+start)}
-
 rangeSS(1,honsen+1).forEach((num) => moveObjects.push(new Train(num)));
 
 
@@ -339,10 +338,15 @@ function N_draw(){
   stationObjects.forEach((obj) => obj.render(context));
   moveObjects.forEach((obj) => obj.render(context));
 
-  document.getElementById('timeSelector').value = String(nowHourNaueno+':'+nowMinNaueno);
+  N_drawTimeInHTML();
   //window.requestAnimationFrame((ts) => loop(ts));
 }
 //window.requestAnimationFrame((ts) => loop(ts));
+
+function N_drawTimeInHTML(){
+  document.getElementById('timeSelector').value = String(nowHourNaueno+':'+nowMinNaueno);
+}
+
 
 function RG_eatherTimesAreNOTSame(){
   G_setTheTimeNowANDpourIntoNaueno();
@@ -362,7 +366,7 @@ function G_loop(timestamp){
     N_draw();
   }
   if(!document.getElementById("toggleSwitch").checked){return;}
-  N_draw();
+  N_drawTimeInHTML();
   window.requestAnimationFrame(G_loop);
   //requestId = window.requestAnimationFrame(G_loop); //戻り値を取得
   //window.cancelAnimationFrame(requestId);
