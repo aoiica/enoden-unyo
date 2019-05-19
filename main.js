@@ -41,10 +41,11 @@ let naueno = 0;
 // <時刻を変化させる処理>
 // 現在時刻
 let theTime = new Date();
+let theTimeForComparison = new Date();
 let theTimeNaueno = new Date();
 theTimeNaueno.setMinutes(theTime.getMinutes() - naueno);
-let nowHourNaueno = theTime.getHours();
-let nowMinNaueno = theTime.getMinutes();
+let nowHourNaueno = theTimeNaueno.getHours();
+let nowMinNaueno = theTimeNaueno.getMinutes();
 
 function G_setTheTimeNowANDpourIntoNaueno(){
   theTime = new Date();
@@ -343,6 +344,31 @@ function N_draw(){
 }
 //window.requestAnimationFrame((ts) => loop(ts));
 
+function RG_eatherTimesAreNOTSame(){
+  G_setTheTimeNowANDpourIntoNaueno();
+  let TTC = theTimeForComparison.getMinutes();
+  let TT = theTime.getMinutes();
+  return !(TTC == TT);
+
+}
+
+//変数じゃなくて(配列?)オブジェクトに時間数値突っ込めばいいかも
+//そのうちラベルに書き換える
+function G_loop(timestamp){
+  if(RG_eatherTimesAreNOTSame()){
+    theTimeForComparison = new Date();
+    G_setTheTimeNowANDpourIntoNaueno();
+    G_setUDLadd1min();
+    N_draw();
+  }
+  if(!document.getElementById("toggleSwitch").checked){return;}
+  N_draw();
+  window.requestAnimationFrame(G_loop);
+  //requestId = window.requestAnimationFrame(G_loop); //戻り値を取得
+  //window.cancelAnimationFrame(requestId);
+};
+
+
 
 document.getElementById("nauenoSetter").addEventListener('input',() => {
   naueno = Number(document.getElementById("nauenoSetter").value);
@@ -373,23 +399,15 @@ document.getElementById("timeSelector").addEventListener('input',() => {
 }, false);
 
 
-let intervalID = -1;
-
 document.getElementById("toggleSwitch").addEventListener('change',(e) => {
   e.preventDefault();
-  if (!document.getElementById("toggleSwitch").checked) {
-    // タイマーが動いている状態でボタンを押すとタイマー停止
-    clearInterval(intervalID);
-    intervalID = -1;
-    return;
-  }
-  G_setTheTimeNowANDpourIntoNaueno();
-  G_setUDLasTheTime();
-  N_draw();
-  intervalID = window.setInterval(()=>{
+  if (document.getElementById("toggleSwitch").checked) {
+    theTimeForComparison = new Date();
     G_setTheTimeNowANDpourIntoNaueno();
-    G_setUDLadd1min();
-    N_draw();}, 500);
+    G_setUDLasTheTime();
+    N_draw();
+    window.requestAnimationFrame(G_loop);
+  };
 }, false);
 
 
