@@ -78,7 +78,7 @@ const stateDict6 = {
     }
 
 function G_setUDLasTheHour(){
-  unyouDnmList = Array.from(eval('stateDict' +String(honsen))[nowHourNaueno]);
+  unyouDnmList = Array.from(eval(`stateDict${String(honsen)}[nowHourNaueno]`));
 }
 
 
@@ -387,8 +387,7 @@ document.getElementById("nauenoSetter").addEventListener('input',() => {
 document.getElementById("unyoInputter").addEventListener('input',() => {
   //テキストエリアの文字をunxにそれぞれ突っ込んでる
   document.getElementById("unyoInputter").value.split('\n').forEach((currentValue, index)=>{
-    let currentValueS = String(currentValue)
-    eval('un'+String(index+1) +' = \"'+ currentValueS+'\";');
+    eval(`un${String(index+1)} = "${String(currentValue)}";`);
   });
 
   N_draw();
@@ -399,7 +398,7 @@ document.getElementById("timeSelector").addEventListener('input',() => {
   if (!document.getElementById("toggleSwitch").checked) {
     G_setTheTimeNow();
 
-    let ymdhm = '2019/'+String(theTime.getMonth())+'/'+String(theTime.getDate())+' '+String(document.getElementById("timeSelector").value);
+    let ymdhm = `2019/${String(theTime.getMonth())}/${String(theTime.getDate())} ${String(document.getElementById("timeSelector").value)}`;
 
     theTime = new Date(ymdhm);
     if(isFinite(theTime.getTime())){
