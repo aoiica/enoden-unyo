@@ -338,13 +338,14 @@ function N_draw(){
   stationObjects.forEach((obj) => obj.render(context));
   moveObjects.forEach((obj) => obj.render(context));
 
-  N_drawTimeInHTML();
   //window.requestAnimationFrame((ts) => loop(ts));
 }
 //window.requestAnimationFrame((ts) => loop(ts));
 
 function N_drawTimeInHTML(){
+  if(isFinite(theTimeNaueno.getTime())){
   document.getElementById('timeSelector').value = String(nowHourNaueno+':'+nowMinNaueno);
+  }
 }
 
 
@@ -362,8 +363,11 @@ function G_loop(timestamp){
     theTimeForComparison = new Date();
     G_setTheTimeNow();
     G_pourTheTimeIntoNaueno();
+
     G_setUDLadd1min();
+
     N_draw();
+    N_drawTimeInHTML();
   }
   if(!document.getElementById("toggleSwitch").checked){return;}
   N_drawTimeInHTML();
@@ -386,6 +390,7 @@ document.getElementById("unyoInputter").addEventListener('input',() => {
     let currentValueS = String(currentValue)
     eval('un'+String(index+1) +' = \"'+ currentValueS+'\";');
   });
+
   N_draw();
 }, false);
 
@@ -397,9 +402,13 @@ document.getElementById("timeSelector").addEventListener('input',() => {
     let ymdhm = '2019/'+String(theTime.getMonth())+'/'+String(theTime.getDate())+' '+String(document.getElementById("timeSelector").value);
 
     theTime = new Date(ymdhm);
-    G_pourTheTimeIntoNaueno();
-    G_setUDLasTheTime();
-    N_draw();
+    if(isFinite(theTime.getTime())){
+      G_pourTheTimeIntoNaueno();
+
+      G_setUDLasTheTime();
+
+      N_draw();
+    }
   }
 }, false);
 
@@ -410,12 +419,40 @@ document.getElementById("toggleSwitch").addEventListener('change',(e) => {
     theTimeForComparison = new Date();
     G_setTheTimeNow();
     G_pourTheTimeIntoNaueno();
+
     G_setUDLasTheTime();
+
     N_draw();
+    N_drawTimeInHTML();
+
     window.requestAnimationFrame(G_loop);
   };
 }, false);
 
 
+
 N_draw();
+N_drawTimeInHTML();
 console.log('piyo');
+/*
+const checkEqual = function(a, b) {
+  if (a !== b) {
+    throw new Error('Error:' + message);
+  }
+}
+
+
+function check(a, b) {
+  var message;
+  if (a !== b) {
+    message =
+        'A != B' + '\n' +
+        'A = ' + a + '\n' +
+        'B = ' + b;
+    alert(message);
+  }
+};
+
+
+//https://github.com/standard-software/stsLib.js/blob/master/Source/stsLib.js/stslib_core.js
+*/
