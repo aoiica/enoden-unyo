@@ -1,13 +1,13 @@
 'use strict';
 
 // <canvas関連のもろもろ>
-const WIDTH = 800;
-const HEIGHT = WIDTH / 16 * 9; /*450*/
-const canvas = document.createElement('canvas');
+const WIDTH = window.innerWidth; /*800*/
+const HEIGHT = WIDTH / 16 * 4;  /*16 * 9 = 450*/
+const canvas = document.getElementsByTagName('canvas')[0];
 canvas.width = WIDTH;
 canvas.height = HEIGHT;
 const context = canvas.getContext('2d');
-document.body.appendChild(canvas);
+//document.body.appendChild(canvas);
 
 context.fillStyle = 'SkyBlue';
 context.fillRect(20,40,50,100);
@@ -41,21 +41,29 @@ let naueno = 0;
 // <時刻を変化させる処理>
 // 現在時刻
 let theTime = new Date();
+let theHourZero = ("0"+theTime.getHours()).slice(-2);
+let theMinZero = ("0"+theTime.getMinutes()).slice(-2);
+
 let theTimeForComparison = new Date();
+
 let theTimeNaueno = new Date();
 theTimeNaueno.setMinutes(theTime.getMinutes() - naueno);
-let nowHourNaueno = theTimeNaueno.getHours();
-let nowMinNaueno = theTimeNaueno.getMinutes();
+let theHourNaueno = theTimeNaueno.getHours();
+let theMinNaueno = theTimeNaueno.getMinutes();
+
 
 function G_setTheTimeNow(){
   theTime = new Date();
 }
 
 function G_pourTheTimeIntoNaueno(){
+  theHourZero = ("0"+theTime.getHours()).slice(-2);
+  theMinZero = ("0"+theTime.getMinutes()).slice(-2);
+
   theTimeNaueno = theTime;
   theTimeNaueno.setMinutes(theTime.getMinutes() - naueno);
-  nowHourNaueno = theTimeNaueno.getHours();
-  nowMinNaueno = theTimeNaueno.getMinutes();
+  theHourNaueno = theTimeNaueno.getHours();
+  theMinNaueno = theTimeNaueno.getMinutes();
 }
 
 
@@ -78,7 +86,7 @@ const stateDict6 = {
     }
 
 function G_setUDLasTheHour(){
-  unyouDnmList = Array.from(eval(`stateDict${String(honsen)}[nowHourNaueno]`));
+  unyouDnmList = Array.from(eval(`stateDict${String(honsen)}[theHourNaueno]`));
 }
 
 
@@ -108,7 +116,7 @@ function G_setUDLadd1min(){
 
 function G_setUDLasTheTime(){
 G_setUDLasTheHour()
-Array.from(Array(nowMinNaueno).keys()).forEach(i => G_setUDLadd1min());
+Array.from(Array(theMinNaueno).keys()).forEach(i => G_setUDLadd1min());
 
 console.log(String(unyouDnmList) + "now;init-uDL");
 }
@@ -120,19 +128,19 @@ G_setTheTimeNow();
 G_pourTheTimeIntoNaueno();
 G_setUDLasTheTime();
 /*
-for(i=0; i<nowMinNaueno; i++){
+for(i=0; i<theMinNaueno; i++){
   G_setUDLadd1min();
 console.log(String(unyouDnmList) + "now;init");
 }
 */
 /*
-if(7 <= nowHourNaueno <= 20){
+if(7 <= theHourNaueno <= 20){
   G_setUDLasTheHour()
-  for(i=0; i<nowMinNaueno; i++){
+  for(i=0; i<theMinNaueno; i++){
     G_setUDLadd1min();
   console.log(String(unyouDnmList) + "now;init");
   }
-}else if(5 <= nowHourNaueno <= 6){
+}else if(5 <= theHourNaueno <= 6){
   jump_state_minute();
 }else(21 <= nowHour <= 23){
   jump_state_minute();
@@ -146,12 +154,12 @@ if(7 <= nowHourNaueno <= 20){
 
 // <背景と電車の描画のためのクラス>
 const wWidth = WIDTH;
-const wHeight = wWidth / 16 * 9;  /*450*/
+const wHeight = HEIGHT;  /*16 * 9 = 450*/
 const wMid = wHeight / 2;  /*225*/
-const baseExpander = 20
+const baseExpander = wWidth/40; /*20*/
 const baseLength = 36 * baseExpander;  /*720*/
 const baseX = (wWidth - baseLength) / 2;  /*40*/
-const basePhase = 4;
+const basePhase = wWidth/200;
 
 function R_baser(eki36){
   return Number(eki36) * baseExpander + baseX
@@ -343,8 +351,8 @@ function N_draw(){
 //window.requestAnimationFrame((ts) => loop(ts));
 
 function N_drawTimeInHTML(){
-  if(isFinite(theTimeNaueno.getTime())){
-  document.getElementById('timeSelector').value = String(nowHourNaueno+':'+nowMinNaueno);
+  if(isFinite(theTime.getTime())){
+  document.getElementById('timeSelector').value = `${theHourZero}:${theMinZero}`;
   }
 }
 

@@ -1,30 +1,99 @@
 <!doctype html>
-<html lang="ja">
+<html>
 
 <head>
   <meta charset="utf-8">
-
   <title></title>
-
+  <meta name="description" content="江ノ電の運用シミュレーター。昼間パターンダイヤにのみ対応">
+  <meta name="creator" content="aoiica">
+  <meta name="lisence" content="CC0">
+  <!--<link rel="icon" href="favicon.ico">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>-->
   <style>
+  * {
+    box-sizing : border-box;
+  }
   body {
     margin: 0;
     padding: 0;
     -webkit-user-select: none;
+    font-family: "Hiragino Kaku Gothic ProN","メイリオ", sans-serif;
   }
-  .canvas {
+
+
+  header {}
+  aside {}
+  article {}
+  footer {
+    position:fixed;
+  }
+
+
+  section {
+    margin: 16px;
+    color: darkslategray;
+  }
+
+
+  canvas {
     background-color: rgba(0,0,0,0);
     text-align: center;
     -webkit-app-region: drag;
-    font-family: "Hiragino Kaku Gothic ProN","メイリオ", sans-serif;
+  }
+  form {}
+  p {
+    color: darkslategray;
+  }
+  /* チェックボックスは非表示（※css-1と同じ） */
+  input[type="checkbox"] {
+    display: none;
+  }
+  label {
+    width          : 100px;               /* ボタンの横幅       */
+    display        : block;               /* ボックス要素に変更 */
+    text-align     : left;                /* 文字位置は中央     */
+    height         : 30px;                /* ボタンの高さ       */
+    border         : 2px solid #ddd;   /* 枠線               */
+    border-radius  : 8px;                 /* 角丸               */
+    color: white;
+  }
+  /* offの表示状態 */
+  label > input + span {
+    display        :inline-block;
+    height         : 26px;                /* ボタンの高さ       */
+    width          :55%;                 /* ボタンの横　      */
+    border-radius  : 6px;                 /* 角丸               */
+    background     : #ddd;                /* 背景色             */
+    transition     : 0.2s ease-in-out;                 /* ゆっくり変化       */
+    content : "Ⅱ";
+    text-align: center;
+    padding: 1.4px;
+    color: #ddd;
+  }
+  /* onの表示状態 */
+  label > input:checked + span {
+    content : "off";
+    transform      : translateX(82%);    /* BOXを右に移動      */
+    background     : #78bd78;             /* 背景色             */
+    color: white;
+  }
+  /* labelのhover時もこのように書ける */
+  label:hover > input + span {
+    content: "▷";
+    color: white;
   }
   </style>
 </head>
 
 
 <body>
-  <p>
-  <form action="cgi-bin/formmail.cgi" method="post">
+<header></header>
+<aside></aside>
+
+<article>
+<section title="運用入力フォーム">
+<form action="cgi-bin/formmail.cgi" method="post">
 <textarea id="unyoInputter" rows="6" cols="40">
 [1]
 [2]
@@ -32,14 +101,35 @@
 [4]
 [5]
 [6]</textarea>
-<p>なうえの：<input type="let" id="nauenoSetter" size="10" value="0" maxlength="3"></p>
   <!--<input type="reset" value="編成リセット">-->
-  </form>
-  <input type="time" id="timeSelector" name="times" min="07:00" max="21:59" value="09:00">
-  <input type="checkbox" id="toggleSwitch"/>
-  </p>
-  <!--<button id="interval">スタート</button>-->
-</body>
+</form>
+</section>
+
+<section title="時間となうえの設定表示エリア">
+<input type="time" id="timeSelector" name="times" min="07:00" max="21:59" value="09:00">
+<= (なうえの=<input type="let" id="nauenoSetter" size="10" value="0" maxlength="3">)
+</section>
+
+<section title="自動更新ボタン">
+  <label>
+    <input type="checkbox" id="toggleSwitch"/>
+    <span>LIVE</span>
+  </label>
+
+</section>
+
+<canvas></canvas>
+</article>
+
 <script src="main.js" defer></script>
+
+
+<footer>
+<section title="フッター文">
+  <p>動作環境: デスクトップ版;Safari:o, Firefox;vivaldi:o, Chrome:x ;モバイル版;Safari:?, Firefox:?, Chrome:? // バグの報告や機能追加の要望がもしあればgit-hub@aoiicaかtwitter@aoiica0802まで // LICENSE=CCO</p>
+</section>
+</footer>
+</body>
+
 
 </html>
