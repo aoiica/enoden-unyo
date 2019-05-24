@@ -25,9 +25,7 @@
   header {}
   aside {}
   article {}
-  footer {
-    position:fixed;
-  }
+  footer {}
 
 
   section {
@@ -41,6 +39,7 @@
     text-align: center;
     -webkit-app-region: drag;
   }
+
   form {}
   p {
     color: darkslategray;
@@ -49,23 +48,24 @@
   input[type="checkbox"] {
     display: none;
   }
+  /*枠線*/
   label {
-    width          : 100px;               /* ボタンの横幅       */
-    display        : block;               /* ボックス要素に変更 */
-    text-align     : left;                /* 文字位置は中央     */
-    height         : 30px;                /* ボタンの高さ       */
-    border         : 2px solid #ddd;   /* 枠線               */
-    border-radius  : 8px;                 /* 角丸               */
+    width          : 100px;
+    display        : block;
+    text-align     : left;
+    height         : 30px;
+    border         : 2px solid #ddd;
+    border-radius  : 8px;
     color: white;
   }
-  /* offの表示状態 */
+  /* offの表示状態ボタン */
   label > input + span {
     display        :inline-block;
-    height         : 26px;                /* ボタンの高さ       */
-    width          :55%;                 /* ボタンの横　      */
-    border-radius  : 6px;                 /* 角丸               */
-    background     : #ddd;                /* 背景色             */
-    transition     : 0.2s ease-in-out;                 /* ゆっくり変化       */
+    height         : 26px;
+    width          :55%;
+    border-radius  : 6px;
+    background     : #ddd;
+    transition     : 0.2s ease-in-out;
     content : "Ⅱ";
     text-align: center;
     padding: 1.4px;
@@ -74,11 +74,11 @@
   /* onの表示状態 */
   label > input:checked + span {
     content : "off";
-    transform      : translateX(82%);    /* BOXを右に移動      */
-    background     : #78bd78;             /* 背景色             */
+    transform      : translateX(82%);    /* BOXを右に移動*/
+    background     : #78bd78;
     color: white;
   }
-  /* labelのhover時もこのように書ける */
+  /* labelのhover時*/
   label:hover > input + span {
     content: "▷";
     color: white;
@@ -106,7 +106,7 @@
 </section>
 
 <section title="時間となうえの設定表示エリア">
-<input type="time" id="timeSelector" name="times" min="07:00" max="21:59" value="09:00">
+<input type="time" id="timeSelector" name="times" min="05:10" max="23:59" value="11:00">
 <= (なうえの=<input type="let" id="nauenoSetter" size="10" value="0" maxlength="3">)
 </section>
 
