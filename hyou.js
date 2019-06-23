@@ -179,7 +179,7 @@ for(let col=1; col<=6; col++){//運用番号分次のループを繰り返す
       zenJikokuYouso[time][col] = ructDown;
     }else if(ruct == null){
       if(Math.abs(ructM1) == Math.abs(ructDown)){
-        zenJikokuYouso[time][col] = Math.abs(ructM1);
+        zenJikokuYouso[time][col] = ructDown;
       }else if(ructDown == null){
         zenJikokuYouso[time][col] = ructM1;
       }else{
