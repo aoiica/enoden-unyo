@@ -134,7 +134,7 @@ for(let obj of objects){
   }
 }
 //51Bの修正
-zenJikokuYouso[509][5] = -11;
+zenJikokuYouso[609][5] = -27;
 //ここまでで第一段階
 
 
@@ -219,18 +219,27 @@ for(let col=1; col<=6; col++){
   }
 }
 //朝の鎌倉24分4番線停車
-for(let time of timeArray){
+for(let [row, time] of timeArray.entries()){
   if(time == 531){
-    while(Math.abs(zenJikokuYouso[time][3] == 36)){
-      zenJikokuYouso[time][3] == +36;
+    zenJikokuYouso[timeArray[row]][3] = +36;
+    let rowDown = row+1;
+    while(Math.abs(zenJikokuYouso[timeArray[rowDown]][3]) == 36){
+      zenJikokuYouso[timeArray[rowDown]][3] = +36;
+      rowDown +=1;
     }
   }
 }
-//長谷駅オーバーラン対策
+//稲村ヶ崎オーバーラン対策
 for(let col=1; col<=6; col++){
   for(let [row, time] of timeArray.entries()){
-    if(zenJikokuYouso[timeArray[row]][col] == +11 && timeArray[row+1][col] == 204){
-      zenJikokuYouso[timeArray[row+3]][col] == +12;
+    if(zenJikokuYouso[timeArray[row]][col] == +21){
+      let rowP3P = row+3;
+      if(timeArray[rowP3P] != null){
+        while(zenJikokuYouso[timeArray[rowP3P]][col] == 204){
+          zenJikokuYouso[timeArray[rowP3P]][col] = +24;
+          rowP3P +=1;
+        }
+      }
     }
   }
 }
