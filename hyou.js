@@ -132,7 +132,10 @@ for(let obj of objects){
     let iti36 = iti36abs * obj.updw;
     zenJikokuYouso[itiTime.time][obj.car] = iti36;
   }
-}//ここまでで第一段階
+}
+//51Bの修正
+zenJikokuYouso[509][5] = -11;
+//ここまでで第一段階
 
 
 //とりあえず埋める1：1~6の空きデータをよしなにする
@@ -203,6 +206,33 @@ for(let time of timeArray){
   zenJikokuYouso[time][7] = 27;
   zenJikokuYouso[time][8] = 27;
   zenJikokuYouso[time][9] = 12;
+}
+
+
+//細かな修正
+//昼の鎌倉3番線停車
+for(let col=1; col<=6; col++){
+  for(let time of timeArray){
+    if(Math.abs(zenJikokuYouso[time][col]) == 36){
+      zenJikokuYouso[time][col] = -36;
+    }
+  }
+}
+//朝の鎌倉24分4番線停車
+for(let time of timeArray){
+  if(time == 531){
+    while(Math.abs(zenJikokuYouso[time][3] == 36)){
+      zenJikokuYouso[time][3] == +36;
+    }
+  }
+}
+//長谷駅オーバーラン対策
+for(let col=1; col<=6; col++){
+  for(let [row, time] of timeArray.entries()){
+    if(zenJikokuYouso[timeArray[row]][col] == +11 && timeArray[row+1][col] == 204){
+      zenJikokuYouso[timeArray[row+3]][col] == +12;
+    }
+  }
 }
 
 
