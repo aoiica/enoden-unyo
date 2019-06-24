@@ -232,11 +232,22 @@ for(let [row, time] of timeArray.entries()){
 //稲村ヶ崎オーバーラン対策
 for(let col=1; col<=6; col++){
   for(let [row, time] of timeArray.entries()){
+    //くだり
     if(zenJikokuYouso[timeArray[row]][col] == +21){
       let rowP3P = row+3;
       if(timeArray[rowP3P] != null){
         while(zenJikokuYouso[timeArray[rowP3P]][col] == 204){
           zenJikokuYouso[timeArray[rowP3P]][col] = +24;
+          rowP3P +=1;
+        }
+      }
+    }
+    //のぼり
+    if(zenJikokuYouso[timeArray[row]][col] == -27){
+      let rowP3P = row+3;
+      if(timeArray[rowP3P] != null){
+        while(zenJikokuYouso[timeArray[rowP3P]][col] == 204){
+          zenJikokuYouso[timeArray[rowP3P]][col] = -24;
           rowP3P +=1;
         }
       }
