@@ -22,12 +22,12 @@ let unyouDnmList = [0,    1, 2, 3, 4, 5, 6,    7, 8, 9];
 const honsen = 6;
 let kmkrPltf = 3;
 // 運用バケツ　Fがついていようとなかろうと+だろうと-だろうと、とりあえず突っ込む。あとでよしなにする。
-let un1 = '[1]';
-let un2 = '[2]';
-let un3 = '[3]';
-let un4 = '[4]';
-let un5 = '[5]';
-let un6 = '[6]';
+var un1 = '[1]';
+var un2 = '[2]';
+var un3 = '[3]';
+var un4 = '[4]';
+var un5 = '[5]';
+var un6 = '[6]';
 
 let un7 = '[7]';
 // 休みバケツ
@@ -460,12 +460,38 @@ Array.from(Array(theMinNaueno).keys()).forEach(i => G_setUDLadd1min());
 console.log(String(unyouDnmList) + "now;init-uDL");
 }
 
+function G_yahooRealTime(un1, un2, un3, un4, un5, un6){
+
+  fetch('https://search.yahoo.co.jp/realtime/search?p=%23%E6%B1%9F%E3%83%8E%E9%9B%BB%E9%81%8B%E7%94%A8', {
+    mode: 'cors' //'no-cors' //
+  })
+  .then(res => res.text())
+  .then(body => console.log(body));
+
+  /*
+  var request = require('request');
+
+  request('https://search.yahoo.co.jp/realtime/search?p=%23%E6%B1%9F%E3%83%8E%E9%9B%BB%E9%81%8B%E7%94%A8', function (error, response, body) {
+    if (!error && response.statusCode == 200) {
+        //console.log(body);
+        un1 = body.match(/\[1\]\S+(\s|\n)/g)[0];
+        un2 = body.match(/\[2\]\S+(\s|\n)/g)[0];
+        un3 = body.match(/\[3\]\S+(\s|\n)/g)[0];
+        un4 = body.match(/\[4\]\S+(\s|\n)/g)[0];
+        un5 = body.match(/\[5\]\S+(\s|\n)/g)[0];
+        un6 = body.match(/\[6\]\S+(\s|\n)/g)[0];
+    };
+    N_forcast(un1, un2, un3, un4, un5, un6, un6);
+  });
+  */
+}
 
 // <ここから処理を起動しはじめるゾーン>
 // 起動時の処理
 G_setTheTimeNow();
 G_pourTheTimeIntoNaueno();
 G_setUDLasTheTime();
+//G_yahooRealTime();
 /*
 for(i=0; i<theMinNaueno; i++){
   G_setUDLadd1min();
@@ -695,6 +721,47 @@ function N_drawTimeInHTML(){
   }
 }
 
+function N_forcast(un1, un2, un3, un4, un5, un6){
+  let lineList = [un1, un2, un3, un4, un5, un6];
+  let tDList=[];
+  lineList.forEach((line, i) => {
+    tDList.push(
+      [
+      line.match(/\]\d*F/)?line.match(/\]\d*F/)[0].match(/\d*F/)[0]:null
+      ,line.match(/\+\d*F/)?line.match(/\+\d*F/)[0].match(/\d*F/)[0]:null
+      ]
+    );
+  });
+
+  for (let i of [0,2,4]){
+    if (tDList[i][1] == null){
+      tDList[i][1] = tDList[i][0];
+      tDList[i][0] = null;
+    };
+  };
+
+  document.getElementById('lr1').innerHTML = `f1812>極開1838>＿＿:(${tDList[0][0]})f`
+  document.getElementById('lr2').innerHTML = `　`
+  document.getElementById('lr3').innerHTML = `f1724>極開1750>＿＿:(${tDList[2][0]})f`
+  document.getElementById('lr4').innerHTML = `　`
+  document.getElementById('lr5').innerHTML = `f1748>極開1814>＿＿:(${tDList[4][0]})f`
+  document.getElementById('lr6').innerHTML = `k1836>江開1900>左留:(${tDList[5][1]})k`
+
+  document.getElementById('la1').innerHTML = `f2148>極終__2215>＿＿:(${tDList[0][1]})k`
+  document.getElementById('la2').innerHTML = `k2355>稲終__2405>＿＿:(${tDList[1][0]}+${tDList[1][1]})fk`
+  document.getElementById('la3').innerHTML = `k2202>江終1_2215>中線:(${tDList[2][1]})k`
+  document.getElementById('la4').innerHTML = `k2332>江終4_2358>２番:(${tDList[3][0]}+${tDList[3][1]})fk`
+  document.getElementById('la5').innerHTML = `k2202>江終2_2225>右線:(${tDList[4][1]})k`
+  document.getElementById('la6').innerHTML = `k2332>江終3_2355>１番:(${tDList[5][0]})f`
+
+  document.getElementById('lt1').innerHTML = `[5]　XF+XF`
+  document.getElementById('lt2').innerHTML = `[6]　(${tDList[1][0]}>${tDList[5][1]})+${tDList[1][1]}`
+  document.getElementById('lt3').innerHTML = `[2]　${tDList[2][1]}+XF`
+  document.getElementById('lt4').innerHTML = `[3]　${tDList[3][0]}+${tDList[3][1]}`
+  document.getElementById('lt5').innerHTML = `[1]　XF+${tDList[4][1]}`
+  document.getElementById('lt6').innerHTML = `[4]　XF+${tDList[5][0]}`
+
+}
 
 function RG_eatherTimesAreNOTSame(){
   G_setTheTimeNow();
@@ -716,13 +783,98 @@ function G_loop(timestamp){
     N_draw();
     N_drawTimeInHTML();
   }
-  if(!document.getElementById("toggleSwitch").checked){return;}
+  if(!document.getElementById("toggleSwitch").checked){
+    Array.prototype.slice.call(document.getElementsByClassName("antiLive")).forEach((item, i) => {
+      item.disabled = false;
+    });
+    return;
+  }
   N_drawTimeInHTML();
   window.requestAnimationFrame(G_loop);
   //requestId = window.requestAnimationFrame(G_loop); //戻り値を取得
   //window.cancelAnimationFrame(requestId);
 };
 
+function G_fastLoop(timestamp){
+  if (!document.getElementById("toggleSwitch").checked) {
+    G_setTheTimeNow();
+
+    let ymdhm = `2019/${String(theTime.getMonth())}/${String(theTime.getDate())} ${String(document.getElementById("timeSelector").value)}`;
+
+    theTime = new Date(ymdhm);
+    if(isFinite(theTime.getTime())){
+      theTime.setMinutes(theTime.getMinutes()+1);
+
+      G_pourTheTimeIntoNaueno();
+
+      G_setUDLasTheTime();
+
+      N_draw();
+    }
+  }
+
+  if(!document.getElementById("fastForward").checked){
+    Array.prototype.slice.call(document.getElementsByClassName("antiLive")).forEach((item, i) => {
+      item.disabled = false;
+    });
+    return;
+  }
+  N_drawTimeInHTML();
+  setTimeout(G_fastLoop, 500);
+  //window.requestAnimationFrame(G_loop);
+  //requestId = window.requestAnimationFrame(G_loop); //戻り値を取得
+  //window.cancelAnimationFrame(requestId);
+};
+
+function G_minChange(min){
+  if (!document.getElementById("toggleSwitch").checked && !document.getElementById("fastForward").checked) {
+    G_setTheTimeNow();
+
+    let ymdhm = `2019/${String(theTime.getMonth())}/${String(theTime.getDate())} ${String(document.getElementById("timeSelector").value)}`;
+
+    theTime = new Date(ymdhm);
+    if(isFinite(theTime.getTime())){
+      theTime.setMinutes(theTime.getMinutes()+min);
+
+      G_pourTheTimeIntoNaueno();
+
+      G_setUDLasTheTime();
+
+      N_draw();
+    }
+  }
+};
+
+
+
+function paste() {
+  var pasteText = document.querySelector("#output");
+  pasteText.focus();
+  document.execCommand("paste");
+  console.log(pasteText.textContent);
+
+  un1 = pasteText.textContent.match(/\[1\]\S+(\s|\n)/g)[0];
+  un2 = pasteText.textContent.match(/\[2\]\S+(\s|\n)/g)[0];
+  un3 = pasteText.textContent.match(/\[3\]\S+(\s|\n)/g)[0];
+  un4 = pasteText.textContent.match(/\[4\]\S+(\s|\n)/g)[0];
+  un5 = pasteText.textContent.match(/\[5\]\S+(\s|\n)/g)[0];
+  un6 = pasteText.textContent.match(/\[6\]\S+(\s|\n)/g)[0];
+}
+
+
+function shiftMin(min) {
+  //theTime = new Date(ymdhm);
+  theTime.setMinutes(theTime.getMinutes()+min);
+
+  G_pourTheTimeIntoNaueno();
+
+  G_setUDLasTheTime();
+
+  N_draw();
+  N_drawTimeInHTML();
+}
+
+//document.querySelector("#paste").addEventListener("click", paste);
 
 
 
@@ -738,6 +890,7 @@ document.getElementById("unyoInputter").addEventListener('input',() => {
   });
 
   N_draw();
+  N_forcast(un1, un2, un3, un4, un5, un6);
 }, false);
 
 
@@ -762,6 +915,11 @@ document.getElementById("timeSelector").addEventListener('input',() => {
 document.getElementById("toggleSwitch").addEventListener('change',(e) => {
   e.preventDefault();
   if (document.getElementById("toggleSwitch").checked) {
+    Array.prototype.slice.call(document.getElementsByClassName("antiLive")).forEach((item, i) => {
+      item.disabled = true;
+    });
+    document.getElementById("fastForward").checked = false;
+
     theTimeForComparison = new Date();
     G_setTheTimeNow();
     G_pourTheTimeIntoNaueno();
@@ -772,6 +930,18 @@ document.getElementById("toggleSwitch").addEventListener('change',(e) => {
     N_drawTimeInHTML();
 
     window.requestAnimationFrame(G_loop);
+  };
+}, false);
+
+
+document.getElementById("fastForward").addEventListener('change',(e) => {
+  e.preventDefault();
+  if (document.getElementById("fastForward").checked) {
+    Array.prototype.slice.call(document.getElementsByClassName("antiLive")).forEach((item, i) => {
+      item.disabled = true;
+    });
+    document.getElementById("fastForward").disabled = false;
+    window.requestAnimationFrame(G_fastLoop);
   };
 }, false);
 

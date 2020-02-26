@@ -31,6 +31,9 @@
     -webkit-user-select: none;
     font-family: "Hiragino Kaku Gothic ProN","メイリオ", sans-serif;
   }
+  p {
+    color: darkslategray;
+  }
 
 
   header {}
@@ -38,10 +41,37 @@
   article {}
   footer {}
 
+  div#row6 {
+    display: flex;
+  }
 
   section {
     margin: 16px;
     color: darkslategray;
+  }
+  section#enoForcast {
+    font-family: monospace;
+    font-size: 0.8em;
+    display: flex;
+    align-items: baseline;
+  }
+  section.flexs {
+    display: flex;
+  }
+  .antiLive {
+    flex: 1;
+  }
+
+  ul {
+    margin-top: 0px;
+  }
+  li {
+    list-style: none;
+  }
+
+  textarea#unyoInputter {
+    height: clac(1.3em * 6);
+    line-height: 1.3em;
   }
 
 
@@ -49,50 +79,179 @@
     background-color: rgba(0,0,0,0);
     text-align: center;
     -webkit-app-region: drag;
+    color: darkslategra;
   }
 
   form {}
-  p {
-    color: darkslategray;
+
+  textarea#unyoInputter {
+    appearance: none;
+    border         : 2px solid #ddd;
+    border-radius  : 8px;
+    color: #78bd78;
   }
-  /* チェックボックスは非表示（※css-1と同じ） */
-  input[type="checkbox"] {
+
+  label.timeSelector {
+    height: 1.3em;
+    width: 400px;
+    border         : 2px solid #ddd;
+    border-radius  : 8px;
+    padding: 4px 6px;
+  }
+  label.timeSelector > input[type="time"]#timeSelector {
+    /* height: 100%; */
+    width: 6em;
+    /* position: relative; */
+    background: transparent;
+    border: 0;
+    font-size: 1em;
+    font-weight: bold;
+    color: #78bd78;
+  }
+  span.timeSelector {
+    font-weight: bold;
+    color: #bbb;
+  }
+  label.nauenoSetter {
+    height: 1.3em;
+    width: 400px;
+    border         : 2px solid #ddd;
+    border-radius  : 8px;
+    padding: 4px 6px;
+    color: #aaa;
+  }
+  label.nauenoSetter > input[type="let"]#nauenoSetter {
+    /* height: 100%; */
+    width: 3em;
+    padding: 0 10px;
+    /* position: relative; */
+    background: transparent;
+    border: 0;
+    font-size: 1em;
+    color: #78bd78;
+  }
+
+  /* ライブトグル:チェックボックスは非表示（※css-1と同じ） */
+  input[type="checkbox"].toggleSwitch {
     display: none;
   }
   /*枠線*/
-  label {
+  label.toggleSwitch {
     width          : 100px;
     display        : block;
     text-align     : left;
     height         : 30px;
     border         : 2px solid #ddd;
     border-radius  : 8px;
-    color: white;
+    color: #ddd;
+    background: #ddd;
   }
   /* offの表示状態ボタン */
-  label > input + span {
+  label.toggleSwitch > input + span {
     display        :inline-block;
     height         : 26px;
     width          :55%;
     border-radius  : 6px;
-    background     : #ddd;
+    background     : white;
     transition     : 0.2s ease-in-out;
     content : "Ⅱ";
     text-align: center;
     padding: 1.4px;
-    color: #ddd;
+    color: #78bd78;
   }
   /* onの表示状態 */
-  label > input:checked + span {
+  label.toggleSwitch > input:checked + span {
     content : "off";
     transform      : translateX(82%);    /* BOXを右に移動*/
     background     : #78bd78;
     color: white;
   }
   /* labelのhover時*/
-  label:hover > input + span {
+  label.toggleSwitch:hover > input + span {
     content: "▷";
     color: white;
+    background     : #78bd78;
+  }
+  label.toggleSwitch:hover > input + span {
+    content: "▷";
+    color: white;
+    background     : #78bd78;
+  }
+
+
+  /* ファストフォワード:チェックボックスは非表示（※css-1と同じ） */
+  input[type="checkbox"].fastForward {
+    display: none;
+  }
+  /*枠線*/
+  label.fastForward {
+    width          : 80px;
+    /* display        : block; */
+    text-align     : center;
+    vertical-align: bottom;
+    background-color: white;
+    margin: 0 4px;
+  }
+  /* offの表示状態ボタン */
+  label.fastForward > input + div {
+    width: 100%;
+    height: 100%;
+    border         : 2px solid #ddd;
+    border-radius  : 8px;
+    transition     : 0.2s ease-in-out;
+    /* display        :inline-block; */
+    border         : 2px solid #ddd;
+  }
+  label.fastForward > input + div::after {
+    vertical-align: bottom;
+    position: relative;
+    top: 3px;
+    content : "▶︎▶︎";
+    color: #78bd78;
+  }
+  /* onの表示状態 */
+  label.fastForward > input:checked + div {
+    background-color: #78bd78;
+  }
+  label.fastForward > input:checked + div::after {
+    content : "◼︎";
+    color: white;
+  }
+  /* labelのhover時*/
+  label.fastForward > input:hover + div {
+    border-color: #78bd78;
+  }
+  /* disable */
+  label.fastForward > input:disabled + div {
+    color: #ddd;
+    border-color: #ddd;
+  }
+  label.fastForward > input:disabled + div::after {
+    color: #ddd;
+  }
+
+
+  button.minuteButton {
+    /* transition     : 0.05s ease-in-out; */
+    /* width: 3em; */
+    background     : white;
+    font-size: 1em;
+    color: #78bd78;
+    border         : 2px solid #ddd;
+    border-radius  : 8px;
+    margin: 4px;
+  }
+  button.minuteButton:hover {
+    border-color: #78bd78;
+  }
+  button.minuteButton:active {
+    background     : #78bd78;
+    color: white;
+  }
+  /* disable */
+  button.minuteButton:disabled {
+    color: #ddd;
+    border-color: #ddd;
   }
   </style>
 </head>
@@ -103,33 +262,82 @@
 <aside></aside>
 
 <article>
+<!--
+<section title="自動読込">
+  <textarea id="output"></textarea>
+  <button id="paste">Paste</button>
+</section>
+-->
+<div id=row6>
 <section title="運用入力フォーム">
 <form action="cgi-bin/formmail.cgi" method="post">
-<textarea id="unyoInputter" rows="6" cols="40">
-[1]
-[2]
-[3]
-[4]
-[5]
-[6]</textarea>
+<textarea id="unyoInputter" rows="6" cols="34" placeholder="[1]                                                                        [2]                                                                        [3]                                                                        [4]                                                                        [5]                                                                        [6]">
+</textarea>
   <!--<input type="reset" value="編成リセット">-->
 </form>
 </section>
 
+<section title="運用予報" id="enoForcast">
+<ul id="release">
+<li id="lr1">f1812>極開1838>＿＿:(XF)f<li>
+<li id="lr2">　</li>
+<li id="lr3">f1724>極開1750>＿＿:(XF)f</li>
+<li id="lr4">　</li>
+<li id="lr5">f1748>極開1814>＿＿:(XF)f</li>
+<li id="lr6">k1836>江開1900>左留:(XF)k</li>
+</ul>
+<ul class="enoForcast" id="anchor">
+<li id="la1">f2148>極終__2215>＿＿:(XF)k<li>
+<li id="la2">k2355>稲終__2405>＿＿:(XF+XF)fk</li>
+<li id="la3">k2202>江終1_2215>中線:(XF)k</li>
+<li id="la4">k2332>江終4_2358>２番:(XF+XF)fk</li>
+<li id="la5">k2202>江終2_2225>右線:(XF)k</li>
+<li id="la6">k2332>江終3_2355>１番:(XF)f</li>
+</ul>
+<ul class="enoForcast" id="tomorrow">
+<li id="lt1">[5]　YF+YF<li>
+<li id="lt2">[6]　(XF>XF)+XF</li>
+<li id="lt3">[2]　XF+XF</li>
+<li id="lt4">[3]　XF+XF</li>
+<li id="lt5">[1]　YF+XF</li>
+<li id="lt6">[4]　YF+XF</li>
+</ul>
+</section>
+</div>
+
 <section title="時間となうえの設定表示エリア">
-<input type="time" id="timeSelector" name="times" min="05:10" max="23:59" value="11:00">
-<= (なうえの=<input type="let" id="nauenoSetter" size="10" value="0" maxlength="3">)
+<label class="timeSelector">
+<input type="time" class="timeSelector" id="timeSelector" name="times" min="05:10" max="23:59" value="11:00">
+</label><span class="timeSelector">&nbsp;<= </span><label class="nauenoSetter">なうえの=<input type="let" id="nauenoSetter" size="10" value="0" maxlength="3"></label
 </section>
 
 <section title="自動更新ボタン">
-  <label>
-    <input type="checkbox" id="toggleSwitch"/>
+  <label class="toggleSwitch">
+    <input type="checkbox" class="toggleSwitch" id="toggleSwitch"/>
     <span>LIVE</span>
   </label>
 
 </section>
 
 <canvas></canvas>
+
+<section title"分数と倍速" class="flexs">
+<button class="minuteButton antiLive" id="m60" onclick="shiftMin(-60)">-60</button>
+<button class="minuteButton antiLive" id="m36" onclick="shiftMin(-36)">-36</button>
+<button class="minuteButton antiLive" id="m12" onclick="shiftMin(-12)">-12</button>
+<button class="minuteButton antiLive" id="m1" onclick="shiftMin(-1)">-1</button>
+<label for="fastForward" class="fastForward">
+<input type="checkbox" id="fastForward" class="fastForward antiLive" name="早送り">
+<div></div>
+</label>
+<button class="minuteButton antiLive" id="p1" onclick="shiftMin(+1)">+1</button>
+<button class="minuteButton antiLive" id="p12" onclick="shiftMin(+12)">+12</button>
+<button class="minuteButton antiLive" id="p24" onclick="shiftMin(+24)">+24</button>
+<button class="minuteButton antiLive" id="p36" onclick="shiftMin(+36)">+36</button>
+<button class="minuteButton antiLive" id="p48" onclick="shiftMin(+48)">+48</button>
+<button class="minuteButton antiLive" id="p60" onclick="shiftMin(+60)">+60</button>
+<button class="minuteButton antiLive" id="p72" onclick="shiftMin(+72)">+72</button>
+</section>
 </article>
 
 <script src="main.js" defer></script>
@@ -137,7 +345,7 @@
 
 <footer>
 <section title="フッター文">
-  <p>バグの報告や機能追加の要望がもしあればgit-hub@aoiicaかtwitter@_aoiicaまで // LICENSE=CCO // GoogleAnalytics入れました</p>
+  <p>バグの報告や機能追加の要望がもしあればgit-hub@aoiicaかtwitter@_aoiicaまで // LICENSE=CCO // 江ノ電大好きだぞ355F( ¨̮ )💕</p>
 </section>
 </footer>
 </body>
