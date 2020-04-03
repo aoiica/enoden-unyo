@@ -460,14 +460,25 @@ Array.from(Array(theMinNaueno).keys()).forEach(i => G_setUDLadd1min());
 console.log(String(unyouDnmList) + "now;init-uDL");
 }
 
-function G_yahooRealTime(un1, un2, un3, un4, un5, un6){
+function G_yahooRealTime(){
 
+  if (uny1) {un1=uny1}
+  if (uny2) {un2=uny2}
+  if (uny3) {un3=uny3}
+  if (uny4) {un4=uny4}
+  if (uny5) {un5=uny5}
+  if (uny6) {un6=uny6}
+
+  let unyoText = `${un1}\n${un2}\n${un3}\n${un4}\n${un5}\n${un6}`
+  document.getElementById("unyoInputter").value = unyoText
+
+  /* CROSS ORIGIN があるのでブラウザがではなく、サーバーで書き出したファイルを読む
   fetch('https://search.yahoo.co.jp/realtime/search?p=%23%E6%B1%9F%E3%83%8E%E9%9B%BB%E9%81%8B%E7%94%A8', {
     mode: 'cors' //'no-cors' //
   })
   .then(res => res.text())
   .then(body => console.log(body));
-
+  */
   /*
   var request = require('request');
 
@@ -491,7 +502,7 @@ function G_yahooRealTime(un1, un2, un3, un4, un5, un6){
 G_setTheTimeNow();
 G_pourTheTimeIntoNaueno();
 G_setUDLasTheTime();
-//G_yahooRealTime();
+G_yahooRealTime();
 /*
 for(i=0; i<theMinNaueno; i++){
   G_setUDLadd1min();
@@ -946,10 +957,9 @@ document.getElementById("fastForward").addEventListener('change',(e) => {
 }, false);
 
 
-
+console.log('bottom',un1);
 N_draw();
 N_drawTimeInHTML();
-console.log('piyo');
 /*
 const checkEqual = function(a, b) {
   if (a !== b) {
