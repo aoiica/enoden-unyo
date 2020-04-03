@@ -462,12 +462,12 @@ console.log(String(unyouDnmList) + "now;init-uDL");
 
 function G_yahooRealTime(){
 
-  if (uny1) {un1=uny1}
-  if (uny2) {un2=uny2}
-  if (uny3) {un3=uny3}
-  if (uny4) {un4=uny4}
-  if (uny5) {un5=uny5}
-  if (uny6) {un6=uny6}
+  try{un1=uny1} catch(e){}
+  try{un2=uny2} catch(e){}
+  try{un3=uny3} catch(e){}
+  try{un4=uny4} catch(e){}
+  try{un5=uny5} catch(e){}
+  try{un6=uny6} catch(e){}
 
   let unyoText = `${un1}\n${un2}\n${un3}\n${un4}\n${un5}\n${un6}`
   document.getElementById("unyoInputter").value = unyoText
