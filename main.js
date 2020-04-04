@@ -959,6 +959,7 @@ document.getElementById("fastForward").addEventListener('change',(e) => {
 
 console.log('bottom',un1);
 N_draw();
+N_forcast(un1, un2, un3, un4, un5, un6);
 N_drawTimeInHTML();
 /*
 const checkEqual = function(a, b) {
