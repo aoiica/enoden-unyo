@@ -758,11 +758,11 @@ function N_forcast(un1, un2, un3, un4, un5, un6){
   document.getElementById('lr5').innerHTML = `f1748>極開1814>＿＿:(${tDList[4][0]})f`
   document.getElementById('lr6').innerHTML = `k1836>江開1900>左留:(${tDList[5][1]})k`
 
-  document.getElementById('la1').innerHTML = `f2148>極終__2215>＿＿:(${tDList[0][1]})k`
+  document.getElementById('la1').innerHTML = `f2149>極終__2215>＿＿:(${tDList[0][1]})k`
   document.getElementById('la2').innerHTML = `k2355>稲終__2405>＿＿:(${tDList[1][0]}+${tDList[1][1]})fk`
-  document.getElementById('la3').innerHTML = `k2202>江終1_2215>中線:(${tDList[2][1]})k`
-  document.getElementById('la4').innerHTML = `k2332>江終4_2358>２番:(${tDList[3][0]}+${tDList[3][1]})fk`
-  document.getElementById('la5').innerHTML = `k2202>江終2_2225>右線:(${tDList[4][1]})k`
+  document.getElementById('la3').innerHTML = `k2202>江終1_2225>中線:(${tDList[2][1]})k`
+  document.getElementById('la4').innerHTML = `f2349>江終4_2358>２番:(${tDList[3][0]}+${tDList[3][1]})fk`
+  document.getElementById('la5').innerHTML = `k2136>江終2_2201>右線:(${tDList[4][1]})k`
   document.getElementById('la6').innerHTML = `k2332>江終3_2355>１番:(${tDList[5][0]})f`
 
   document.getElementById('lt1').innerHTML = `[5]　XF+XF`
