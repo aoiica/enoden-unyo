@@ -7,17 +7,41 @@ These codes are licensed under CC0.
 [![CC0](http://i.creativecommons.org/p/zero/1.0/88x31.png "CC0")](http://creativecommons.org/publicdomain/zero/1.0/deed.ja)
 
 ## files
-### html版
+### html&javascript版
 #### io
-https://aoiica.github.io/enoden-unyo/html-enoden2019.html
-ブラウザ版は上のURLにアクセスすれば開ける
+ブラウザ版のURL
+https://aoiica.github.io/enoden-unyo/enodoko.html
 
-#### html-enoden2019.html
-ページ表示するためのhtml読めばわかる
+#### enodoko.html
+いろいろ
 
-#### main.js
-描画処理、大まかにいうとn時op分のときは、n時00分の位置をレコードから引っ張り出しopぶん位置の値を変化させ描画している。位置のデータは藤沢鎌倉間を36分割した粒度。すると1分で1/36進めればいいので楽。正確性は捨てた。稲村ガ崎の59分発とかあるけれど見なかったことにする。
+#### html-enoden2019.htm
+旧URL。リダイレクトかけた。
 
+#### eCore.js
+起点のjavascriptファイル、ここから追えばだいたいいける。以前のmainを縮小したもの。
+
+#### eCalc.js
+時間を渡すと、走行位置が返ってくる
+
+#### eDraw.js
+いろいろ渡すと、いい感じにcanvasに描画してくれる。N_draw(unyouDnmList,unnList,kmkrPltf)のみ外部から呼ばれる。そのうちクラス化して静的メソッドにしたい。
+
+#### eFill.js
+canvas以外のhtml要素へのアウトプットを担当
+
+#### uny.js
+サーバーの方で収集した#江ノ電運用;をeCoreに渡すためのもの
+
+#### eusCron.sh
+サーバーの方で動かしているスクリプト。yahooリアルタイムにリクエストを送って、いい感じに処理して、uny.jsに書き出すだけ。おそらくアップしてなかったはず。
+
+#### 旧main.js
+描画処理。大まか流れは、x時yz分のときにx時00分の位置をレコードから引っ張り出しyzの分だけ位置の値(リストで管理)を変化させ描画している。位置のデータは藤沢鎌倉間を36分割した粒度。すると1分で1/36進めればいいので楽。正確性は捨てた。稲村ガ崎の59分発とかあるけれど見なかったことにする。
+
+
+
+### 作業用スクリプト
 #### xlsx.py
 毎分位置リストを作るためのコード
 
@@ -37,18 +61,16 @@ https://aoiica.github.io/enoden-unyo/html-enoden2019.html
 
 
 
-
 ### Python3版
 #### searchTweet.py
-keys.pyにtwitterのapiキーを格納して呼び出す。
-のでtwitterのapiキーがないと動かない。
+keys.pyにtwitterのapiキーを格納して呼び出す。なのでtwitterのapiキーがないと動かない。
 
-結果をtoday.pyに書き込むが、today.pyへ手打ちもできるため、ぶっちゃけいらない。自動でやってくれるだけ。
+結果をtoday.pyに書き込むが、today.pyへ手打ちもできるため、実はいらない子。自動でやってくれるだけ。
 
 #### today.py
-今日の編成とかを書き込んで、enoden2019.pyが読み出しに来る。手打ちしておk。
+今日の編成とかを書き込んで、enoden2019.pyが読み出しに来る。手打ちしてOK。
 
 #### enoden2019.py
-メインの処理はこれ。2019は古いファイルとの識別のためにつけたら外すのを忘れただけで深い意味はない。
+メインの処理はこのスクリプト。2019は古いファイルとの識別のためにつけたら外すのを忘れただけで深い意味はない。
 
 段落とし交互発車運用の時のstateデータは整備途中。正確性を増すために、描画のところは改善したい。
