@@ -61,7 +61,7 @@ class Core {
     this.G_pourTheTimeIntoNaueno();
     this.G_yahooRealTime(); //here
     N_forcast(this.unnList);
-    
+
     this.unyouDnmList = G_setUDLasTheTime(this.unyouDnmList,this.theHourNaueno,this.theMinNaueno,this.honsen,this.kmkrPltf,core.twDay,core.theDay); //eCalc
 
     N_draw(this.unyouDnmList,this.unnList,this.kmkrPltf);
@@ -166,6 +166,11 @@ class Core {
     try{this.unnList[4]=uny4} catch(e){}
     try{this.unnList[5]=uny5} catch(e){}
     try{this.unnList[6]=uny6} catch(e){}
+
+    for (let i of [1,2,3,4,5,6]){
+      //全パンHTMLデコード対応
+      this.unnList[i] = (this.unnList[i]).replace('&gt;','>').replace('&lt;','<');
+    }
 
     try{this.twDay=twDay} catch(e){}
 
