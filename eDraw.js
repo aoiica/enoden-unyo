@@ -5,6 +5,8 @@
 const WIDTH = window.innerWidth; /*800*/
 const HEIGHT = WIDTH / 16 * 4;  /*16 * 9 = 450*/
 const canvas = document.getElementsByTagName('canvas')[0];
+// canvas.style.width = WIDTH + 'px';
+// canvas.style.height = HEIGHT + 'px';
 canvas.width = WIDTH;
 canvas.height = HEIGHT;
 const context = canvas.getContext('2d');
