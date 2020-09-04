@@ -84,8 +84,9 @@ function G_setUDLadd1min(unyouDnmList,theHourNaueno,theMinNaueno,honsen,kmkrPltf
     // [3,   27, -24, -12.1, 12, -12.2, -12,   27, 27, 12];
     // [3,   -27, 12, 12, -12, -27, -24,  27, 27, 12];
   }else{
-    if(theDay != twDay){
-      tomorrowUnyo();
+    if (theHourNaueno <= 20){
+      if(theDay != twDay){tomorrowUnyo();
+      }else{todayUnyo();}
     }else{
       todayUnyo();
     }
