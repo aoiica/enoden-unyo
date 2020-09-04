@@ -5,4 +5,4 @@ var uny3='[3]2002F+2001F(HM)'
 var uny4='[4]10F+1502F'
 var uny5='[5]2003F+1101F(情報発信)'
 var uny6='[6]22F(グッズポテト)+1001F'
-var twDay=3
+var twDay=4
