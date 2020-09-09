@@ -4,5 +4,5 @@ var uny2='[2]21F+502F【N】'
 var uny3='[3]1101F(情報発信)+2001F(HM)【R】'
 var uny4='[4]2002F+1501F(セーリング)【PR】'
 var uny5='[5]10F+2003F【R】'
-var uny6='[6]305F(HM)+1001F【R】'
+var uny6='[6]501F(きのたけ)+22F(グッズポテト)'
 var twDay=9
