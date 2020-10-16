@@ -4,5 +4,5 @@ var uny2='[2]1002F(コカコーラ)+1501F(セーリング)【N】'
 var uny3='[3]21F+1502F【R】'
 var uny4='[4]1001F+1101F(情報発信)【R】'
 var uny5='[5]2003F+305F(HM)【SR】</h2> <p'
-var uny6='[6]10F+502F【R】'
+var uny6='[6]501F(きのたけ)+2002F【R】'
 var twDay=16
