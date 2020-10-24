@@ -1,8 +1,8 @@
 
-var uny1='[1]10F+501F(きのたけ)&lt;全&gt;【SR】'
-var uny2='[2]305F(HM)+1001F【R】'
-var uny3='[3]21F+22F(グッズポテト)【R】'
-var uny4='[4]2002F+2001F(HM)【R】'
-var uny5='[5]502F+2003F&lt;全&gt;【UR】'
-var uny6='[6]1101F(情報発信)+1502F【N】'
-var twDay=24
+var uny1='[1]2003F+1002F(コカコーラ)'
+var uny2='[2]22F(グッズポテト)'
+var uny3='[3]2001F(HM)+2002F'
+var uny4='[4]502F'
+var uny5='[5]10F+21F'
+var uny6='[6]305F(HM)+1001F'
+var twDay=25
