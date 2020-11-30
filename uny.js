@@ -1,6 +1,6 @@
 
 var uny1='[1]21F+1001F(カレンダー)</p></div><div'
-var uny2='[2]305F(HM)</p></div><div'
+var uny2='[2]1001F(カレンダー)+305F(HM)</p></div><div'
 var uny3='[3]2002F+305F(HM)'
 var uny4='[4]1201F+502F(HM)【R】'
 var uny5='[5]501F(きのたけ)+1501F(セーリング)【R】'
