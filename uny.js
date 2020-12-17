@@ -1,8 +1,8 @@
 
-var uny1='[1]2003F[全パン]でした。'
-var uny2='[2]1502F+1101F(情報発信)【N】'
-var uny3='[3]2001F+1001F→1001F単'
-var uny4='[4]10F+2002F【R】'
-var uny5='[5]2001F+1001F(カレンダー)【R】'
-var uny6='[6]21F+1201F【R】'
-var twDay=17
+var uny1='[1]501F(きのたけ)+2001F'
+var uny2='[2]305F+1001F(カレンダー)【N】'
+var uny3='[3]10F+2002F【R】'
+var uny4='[4]2003F+21F【R】'
+var uny5='[5]1501F(セーリング)+502F(HM)'
+var uny6='[6]1502F+1101F(情報発信)'
+var twDay=18
