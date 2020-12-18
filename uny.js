@@ -1,8 +1,8 @@
 
-var uny1='[1]2001F※極終'
-var uny2='[2]305F(旧窓枠)+1001F(カレンダー)'
+var uny1='[1]502F(HM)+1101F(情報発信)'
+var uny2='[2]1002F(コカコーラ)'
 var uny3='[3]10F+2002F→1502F単'
-var uny4='[4]2003F+21F'
-var uny5='[5]502F(HM)&lt;全&gt;'
-var uny6='[6]1201F&lt;F↑&gt;'
+var uny4='[4]1201F'
+var uny5='[5]1502F+2001F'
+var uny6='[6]305F+1001F(カレンダー)'
 var twDay=18
