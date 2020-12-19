@@ -5,4 +5,4 @@ var uny3='[3]502F(HM)+501F(きのたけ)【R】'
 var uny4='[4]1201F1501F()セーリングでした。'
 var uny5='[5]2001F+1001F(カレンダー)【R】'
 var uny6='[6]21F+1201F【R】'
-var twDay=17
+var twDay=19
