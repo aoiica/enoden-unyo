@@ -4,5 +4,5 @@ var uny2='[2]10F+1502F【N】'
 var uny3='[3]1001F(カレンダー)+501F(きのたけ)&lt;全&gt;【R】'
 var uny4='[4]22F(グッズポテト)+2003F【R】'
 var uny5='[5]2002F+21F【R】'
-var uny6='[6]2003F+2002F【SR】'
-var twDay=8
+var uny6='[6]1002F(コカコーラ)+1501F(セーリング)【N】'
+var twDay=9
