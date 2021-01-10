@@ -1,8 +1,8 @@
 
-var uny1='[1]501F(きのたけ)+1201F&lt;全&gt;【SR】'
-var uny2='[2]1001F(カレンダー)+21F【R】'
-var uny3='[3]22F(グッズポテト)+2003F【R】'
+var uny1='[1]2001F+1002F(コカコーラ)'
+var uny2='[2]2003F'
+var uny3='[3]305F+2002F'
 var uny4='[4]305F+2002F'
-var uny5='[5]502F(HM)+2001F&lt;全&gt;【R】'
-var uny6='[6]10F+1502F【N】'
+var uny5='[5]1201F+1501F(セーリング)'
+var uny6='[6]1001F(カレンダー)+21F'
 var twDay=10
