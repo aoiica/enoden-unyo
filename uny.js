@@ -1,8 +1,8 @@
 
 var uny1='[1]1001F+1501F(セーリング)【UR】'
-var uny2='[2]501F(きのたけ)+22F(グッズポテト)&lt;全パン&gt;ド定番帯広告重連でした。'
+var uny2='[2]1002F(コカコーラ)+2003F【SR】'
 var uny3='[3]1201F+305F【PR】'
 var uny4='[4]2002F+21F【R】'
 var uny5='[5]502F'
 var uny6='[6]2001F？'
-var twDay=22
+var twDay=23
