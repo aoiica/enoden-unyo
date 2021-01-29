@@ -1,8 +1,8 @@
 
-var uny1='[1]22F(極楽解放)(グッズポテト)+2002F</p></div><div'
+var uny1='[1]10F+1502F'
 var uny2='[2]305F+1001Fでした。'
-var uny3='[3]10F</p></div><div'
-var uny4='[4]502F+1201F[全パン]'
-var uny5='[5]21F(極楽解放)+1002F(コカコーラ)'
-var uny6='[6]2001F+1501F(セーリング)'
+var uny3='[3]502F+1201F'
+var uny4='[4]2003F'
+var uny5='[5]1501F(セーリング)+21F'
+var uny6='[6]305F+1001F'
 var twDay=29
