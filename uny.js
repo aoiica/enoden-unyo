@@ -1,6 +1,6 @@
 
 var uny1='[1]22F(極楽解放)(グッズポテト)+2002F</p></div><div'
-var uny2='[2]305F+1001F【N】</p></div><div'
+var uny2='[2]305F+1001Fでした。'
 var uny3='[3]10F</p></div><div'
 var uny4='[4]502F+1201F[全パン]'
 var uny5='[5]21F(極楽解放)+1002F(コカコーラ)'
