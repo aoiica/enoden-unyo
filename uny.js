@@ -1,8 +1,8 @@
 
-var uny1='[1]10F+1502F(解放)'
-var uny2='[2]2002F+1002F(コカコーラ)でした。'
-var uny3='[3]502F(解放)+1201F'
+var uny1='[1]1201F+22F(グッズポテト)'
+var uny2='[2]21F'
+var uny3='[3]2003F+2001F'
 var uny4='[4]2003F+2001F【R】'
-var uny5='[5]21F【PR】</p></div><div'
-var uny6='[6]305F+1001F→1501F(セーリング)'
+var uny5='[5]1502F+501F(きのたけ)'
+var uny6='[6]2002F+1002F(コカコーラ)'
 var twDay=30
