@@ -1,8 +1,8 @@
 
-var uny1='[1]305F+1001F→305F'
-var uny2='[2]2002F+502F&lt;全&gt;【R】'
-var uny3='[3]22F(グッズポテト)+2003F【R】'
-var uny4='[4]1201F+21F【R】'
-var uny5='[5]1002F(コカコーラ)+2001F【SR】'
-var uny6='[6]1101F+501F(きのたけ)&lt;全&gt;【R】'
+var uny1='[1]305F[全パン]でした。'
+var uny2='[2]2002F+501F(きのたけ)&lt;全&gt;'
+var uny3='[3]1502F※江止'
+var uny4='[4]1201F+21F'
+var uny5='[5]2001F※江止'
+var uny6='[6]1002F(コカコーラ)'
 var twDay=6
