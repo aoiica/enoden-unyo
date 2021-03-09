@@ -4,5 +4,5 @@ var uny2='[2]2003F+1201F【R】'
 var uny3='[3]501F(きのたけ)+1502F【R】'
 var uny4='[4]2001F+22F(グッズポテト)【PR】'
 var uny5='[5]1101F+1501F(セーリング)'
-var uny6='[6]502F+21F'
+var uny6='[6]1001F&lt;全&gt;</p></div><div'
 var twDay=9
