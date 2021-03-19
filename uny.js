@@ -1,8 +1,8 @@
 
-var uny1='[1]1201F&lt;K↑&gt;【R】'
-var uny2='[2]305F+502F&lt;全&gt;【R】'
-var uny3='[3]21F&lt;全&gt;【PR】→江ノ島側線#3'
-var uny4='[4]2002F+1501F(セーリング)【R】'
-var uny5='[5]2003F&lt;K↑&gt;【SR】'
-var uny6='[6]22F(グッズポテト)&lt;F↑&gt;'
+var uny1='[1]21F+1002F(コカコーラ)'
+var uny2='[2]2003F'
+var uny3='[3]2002F+1501F(セーリング)'
+var uny4='[4]22F(グッズポテト)'
+var uny5='[5]1502F+1201F'
+var uny6='[6]305F+502F'
 var twDay=19
