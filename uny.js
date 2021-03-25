@@ -4,5 +4,5 @@ var uny2='[2]1001F+305F【N】'
 var uny3='[3]2001F+1501F(セーリング)'
 var uny4='[4]502F+21F'
 var uny5='[5]2002F+10F【R】'
-var uny6='[6]501F(きのたけ)+2003F'
+var uny6='[6]1101F+1502F【N】</p></div><div'
 var twDay=25
