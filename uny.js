@@ -1,8 +1,8 @@
 
-var uny1='[1]2002F&lt;F↑&gt;【R】'
+var uny1='[1]2003F+1101F'
 var uny2='[2]1501F(セーリング)+305F'
-var uny3='[3]502F&lt;全&gt;【PR】'
-var uny4='[4]501F(きのたけ)+1502F&lt;全&gt;【R】'
-var uny5='[5]2003F&lt;K↑&gt;【SR】'
-var uny6='[6]22F(グッズポテト)&lt;全&gt;【SR】'
+var uny3='[3]501F(きのたけ)+1502F'
+var uny4='[4]22F(グッズポテト)'
+var uny5='[5]502F+21F'
+var uny6='[6]1501F(セーリング)+305F'
 var twDay=27
