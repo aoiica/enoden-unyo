@@ -1,8 +1,8 @@
 
 var uny1='[1]10F[全パン]でした。'
-var uny2='[2]501F(きのたけ)+2003F&lt;全&gt;'
-var uny3='[3]305F&lt;K↑&gt;※江終'
-var uny4='[4]1001F+21F'
-var uny5='[5]1501F(セーリング)※江終'
-var uny6='[6]2001F&lt;F↑&gt;'
+var uny2='[2]2002F+305F'
+var uny3='[3]1001F+21F'
+var uny4='[4]10F+2001F'
+var uny5='[5]1101F+1502F'
+var uny6='[6]501F(きのたけ)+2003F'
 var twDay=5
