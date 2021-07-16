@@ -4,5 +4,5 @@ var uny2='[2]10F+1001F'
 var uny3='[3]2001F+21F'
 var uny4='[4]1002F(コカコーラ)+2002F'
 var uny5='[5]1101F+1502F'
-var uny6='[6]1101F+1502F</p></div><div'
+var uny6='[6]2003F+1501F【R】'
 var twDay=16
