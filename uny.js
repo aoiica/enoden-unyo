@@ -1,5 +1,5 @@
 
-var uny1='[1]10F+21F【R】'
+var uny1='[1]10F&lt;↑F&gt;'
 var uny2='[2]1001F+501F'
 var uny3='[3]1502F+1101F【N】'
 var uny4='[4]22F(グッズポテト)+2003F【R】'
