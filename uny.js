@@ -1,8 +1,8 @@
 
-var uny1='[1]2002F+10F(10排障器無)【R】'
+var uny1='[1]10F(10排障器無)&lt;K↑&gt;'
 var uny2='[2]1001F+305F'
 var uny3='[3]21F+502F&lt;全&gt;'
 var uny4='[4]1101F+1201F'
-var uny5='[5]2001F+1502F→1502F(パンタ不明、文字幕)'
-var uny6='[6]1501F+1002F(コカコーラ)【N】'
+var uny5='[5]1502F'
+var uny6='[6]1002F(コカコーラ)+1501F'
 var twDay=10
