@@ -4,5 +4,5 @@ var uny2='[2]22F(グッズポテト)+501F(きのたけ)&lt;中間↓&gt;'
 var uny3='[3]2003F+2002F'
 var uny4='[4]10F+21F'
 var uny5='[5]1001F&lt;全&gt;'
-var uny6='[6]305F+1201F(305で雨漏りもしくはエアコン水漏れ??)'
+var uny6='[6]305F+1201F【R】</p></div><div'
 var twDay=15
