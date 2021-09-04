@@ -1,8 +1,8 @@
 
-var uny1='[1]502F&lt;全&gt;'
-var uny2='[2]1502F+2002F【R】'
-var uny3='[3]2001F(みずたま)+2003F【R】'
-var uny4='[4]22F(グッズポテト)+1501F【R】'
-var uny5='[5]1101F+1002F(コカコーラ)【R】'
-var uny6='[6]10F(10排障器無)+21F【R】'
-var twDay=4
+var uny1='[1]1002F(コカコーラ)+305F'
+var uny2='[2]2003F'
+var uny3='[3]22F(グッズポテト)+1501F'
+var uny4='[4]1101F'
+var uny5='[5]501F(きのたけ)+1001F'
+var uny6='[6]1502F+2002F'
+var twDay=5
