@@ -4,5 +4,5 @@ var uny2='[2]1002F(コカコーラ)+1501F'
 var uny3='[3]1101F+1502F'
 var uny4='[4]305F+2003F'
 var uny5='[5]22F(グッズポテト)+1001F'
-var uny6='[6]501F(きのたけ)+2002F【R】</p></div><div'
+var uny6='[6]501F(きのたけ)&lt;F↑&gt;'
 var twDay=17
