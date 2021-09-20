@@ -1,8 +1,8 @@
 
-var uny1='[1]305F&lt;F↑&gt;'
+var uny1='[1]305F(1002F分割→本線沿いに入庫)'
 var uny2='[2]2003F+501F(きのたけ)'
-var uny3='[3]10F(10排障器無)+2002F【R】'
-var uny4='[4]22F(グッズポテト)+21F</p></div><div'
-var uny5='[5]2001F(みずたま)+1501F【R】'
-var uny6='[6]1001F+502F【R】'
+var uny3='[3]2002F'
+var uny4='[4]22F(グッズポテト)+21F'
+var uny5='[5]1501F'
+var uny6='[6]2001F(みずたま)</p></div><div'
 var twDay=20
