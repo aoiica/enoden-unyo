@@ -1,8 +1,8 @@
 
-var uny1='[1]1502F+2003F'
-var uny2='[2]21F'
-var uny3='[3]501F(きのたけ)+22F(グッズポテト)'
-var uny4='[4]1001F'
-var uny5='[5]502F+2002F'
+var uny1='[1]1502F+2003F【SR】'
+var uny2='[2]10F(10排障器無)+21F【R】'
+var uny3='[3]501F(きのたけ)+22F(グッズポテト)【N】'
+var uny4='[4]2001F(みずたま)+1001F【R】'
+var uny5='[5]502F+2002F【SR】'
 var uny6='[6]1001F+502F【R】</p></div><div'
 var twDay=24
