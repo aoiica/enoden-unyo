@@ -4,5 +4,5 @@ var uny2='[2]305F(305鉄道HM)+1002F(コカコーラ)'
 var uny3='[3]2003F+1502F'
 var uny4='[4]1501F+22F(グッズポテト)'
 var uny5='[5]21F+502F'
-var uny6='[6]1001F+501F(きのたけ)【R】</p></div><div'
+var uny6='[6]1001F【SR】</p></div><div'
 var twDay=6
