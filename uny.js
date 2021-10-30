@@ -5,4 +5,4 @@ var uny3='[3]1101F(観音電車)+1502F【N】'
 var uny4='[4]2003F+22F(グッズポテト)【R】'
 var uny5='[5]1001F+501F(きのたけ)【R】'
 var uny6='[6]10F(10排障器無)+1501F【R】'
-var twDay=28
+var twDay=30
