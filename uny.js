@@ -1,5 +1,5 @@
 
-var uny1='[1]305F(305鉄道HM)&lt;K↑&gt;'
+var uny1='[1]305F'
 var uny2='[2]2002F+1002F(コカコーラ)'
 var uny3='[3]2003F&lt;全&gt;'
 var uny4='[4]1101F(観音電車)+検'
