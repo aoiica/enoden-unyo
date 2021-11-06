@@ -1,8 +1,8 @@
 
-var uny1='[1]1502F&lt;F↑&gt;'
-var uny2='[2]2002F+502F&lt;K↑&gt;'
-var uny3='[3]501F(きのたけ)&lt;K↑&gt;'
-var uny4='[4]305F(稲江・305HM)'
-var uny5='[5]2003F&lt;K↑&gt;'
-var uny6='[6]21F&lt;全&gt;'
-var twDay=6
+var uny1='[1]2003F+1002F(コカコーラ)'
+var uny2='[2]501F(きのたけ)'
+var uny3='[3]1001F+305F(稲江・305HM)'
+var uny4='[4]21F'
+var uny5='[5]1201F+1501F'
+var uny6='[6]2002F+502F'
+var twDay=7
