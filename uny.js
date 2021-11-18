@@ -1,5 +1,5 @@
 
-var uny1='[1]1001F&lt;K↑&gt;'
+var uny1='[1]1001F'
 var uny2='[2]1502F+1101F(観音電車)'
 var uny3='[3]501F(きのたけ)&lt;K↑&gt;'
 var uny4='[4]1201F+502F'
