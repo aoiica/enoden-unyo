@@ -4,5 +4,5 @@ var uny2='[2]2002F+1501F'
 var uny3='[3]1201F&lt;全&gt;'
 var uny4='[4]1002F(コカコーラ)+501F(きのたけ)'
 var uny5='[5]1101F(観音電車)&lt;K↑&gt;'
-var uny6='[6]305F(稲江)+21F【SR】'
+var uny6='[6]305F(稲江)&lt;K↑&gt;'
 var twDay=29
