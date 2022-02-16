@@ -1,5 +1,5 @@
 
-var uny1='[1]502F(きのたけ)+10F【R】</p></div><div'
+var uny1='[1]10F'
 var uny2='[2]1502F+501F(きのたけ)'
 var uny3='[3]22F(グッズポテト)'
 var uny4='[4]2002F(JA共済)+1001F'
