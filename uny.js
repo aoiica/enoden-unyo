@@ -5,4 +5,4 @@ var uny3='[3]2002F(JA共済)+1001F'
 var uny4='[4]10F+2003F'
 var uny5='[5]305F(水仙)'
 var uny6='[6]2003F'
-var twDay=16
+var twDay=17
