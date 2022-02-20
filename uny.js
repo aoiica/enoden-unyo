@@ -1,8 +1,8 @@
 
-var uny1='[1]22F(グッズポテト)+305F(水仙)'
-var uny2='[2]2003F+1201F'
-var uny3='[3]1501F'
-var uny4='[4]2001F+1101F(観音電車)'
-var uny5='[5]1001F'
-var uny6='[6]10F</p></div><div'
-var twDay=20
+var uny1='[1]1001F+22F(グッズポテト)'
+var uny2='[2]21F+1501F'
+var uny3='[3]2001F+1101F(観音電車)'
+var uny4='[4]1002F(コカコーラ)+10F'
+var uny5='[5]1502F+2002F(JA共済)'
+var uny6='[6]305F(水仙)+502F(きのたけ)'
+var twDay=21
