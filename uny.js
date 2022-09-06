@@ -4,5 +4,5 @@ var uny2='[2]2001F(大河)+2003F'
 var uny3='[3]1002F(コカコーラ)+1501F'
 var uny4='[4]10F+1502F'
 var uny5='[5]305F(コスモス)+1001F</p></div><div'
-var uny6='[6]21F+502F(きのたけ)'
+var uny6='[6]22F(ポテト)+2002F</p></div><div'
 var twDay=6
