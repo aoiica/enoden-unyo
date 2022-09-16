@@ -1,8 +1,8 @@
 
-var uny1='[1]2001F(大河)&lt;全&gt;'
-var uny2='[2]21F+502F(きのたけ)&lt;全&gt;'
-var uny3='[3]1201F&lt;K↑&gt;'
-var uny4='[4]1101F(SEA'
+var uny1='[1]1502F+501F'
+var uny2='[2]1201F'
+var uny3='[3]1101F(SEA'
+var uny4='[4]2002F'
 var uny5='[5]22F(グッズポテト)'
-var uny6='[6]2002F(&lt;F↑&gt;)</p></div><div'
-var twDay=16
+var uny6='[6]21F+502F(きのたけ)</p></div><div'
+var twDay=17
