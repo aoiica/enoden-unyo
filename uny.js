@@ -4,5 +4,5 @@ var uny2='[2]2001F(大河)+1201F【R】'
 var uny3='[3]1101F(SEA'
 var uny4='[4]2003F(ギャラリー)+2002F【R】'
 var uny5='[5]10F+22F(グッズポテト)【R】'
-var uny6='[6]21F+502F(きのたけ)【N】'
+var uny6='[6]21F+502F(きのたけ)'
 var twDay=17
