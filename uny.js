@@ -1,8 +1,8 @@
 
-var uny1='[1]21F+1201F'
+var uny1='[1]1101F(SEA'
 var uny2='[2]10F+1502F'
 var uny3='[3]2003F(ギャラリー)'
 var uny4='[4]2002F+1001F'
 var uny5='[5]502F(きのたけ)(単行)</p></div><div'
-var uny6='[6]501F+1101F(SEA'
+var uny6='[6]502F(きのたけ)&lt;全&gt;'
 var twDay=2
