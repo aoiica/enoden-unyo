@@ -1,5 +1,5 @@
 
-var uny1='[1]1101F(SEA'
+var uny1='[1]1101F'
 var uny2='[2]10F+1502F'
 var uny3='[3]2003F(ギャラリー)&lt;全&gt;'
 var uny4='[4]2002＋1001'
