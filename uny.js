@@ -4,5 +4,5 @@ var uny2='[2]1502F+1101F'
 var uny3='[3]501F'
 var uny4='[4]22F(グッズポテト)+305F(ハロウィン)'
 var uny5='[5]2001F(大河)'
-var uny6='[6]21F+1201F【R】</p></div><div'
+var uny6='[6]21F'
 var twDay=1
