@@ -1,8 +1,8 @@
 
-var uny1='[1]22F(グッズポテト)+2001F(大河)'
-var uny2='[2]10F+1101F'
-var uny3='[3]2003F(ギャラリー)'
-var uny4='[4]1502F+2002F'
-var uny5='[5]1201F'
-var uny6='[6]21F'
-var twDay=13
+var uny1='[1]1201F+1501F'
+var uny2='[2]501F+2003F(ギャラリー)'
+var uny3='[3]1502F+2002F'
+var uny4='[4]22F(グッズポテト)+21F'
+var uny5='[5]305F(いちょう)+502F(きのたけ)'
+var uny6='[6]10F+1101F'
+var twDay=14
