@@ -1,6 +1,6 @@
 
 var uny1='[1]501F&lt;K↑&gt;'
-var uny2='[2]305F(クリスマス)+1001F'
+var uny2='[2]305F+1001F'
 var uny3='[3]21F&lt;K↑&gt;'
 var uny4='[4]2002F+502F(きのたけ)'
 var uny5='[5]1002F(コカコーラ)&lt;K↑&gt;'
