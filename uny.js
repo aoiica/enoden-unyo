@@ -1,8 +1,8 @@
 
-var uny1='[1]501F'
-var uny2='[2]1002F(コカコーラ)&lt;全&gt;</p></div><div'
+var uny1='[1]21F+1502F'
+var uny2='[2]2001F(大河)+1002F(コカコーラ)【R】'
 var uny3='[3]2002F+502F(きのたけ)'
-var uny4='[4]2003F(ギャラリー)'
+var uny4='[4]1201F+2003F(ギャラリー)【R】'
 var uny5='[5]1501F+1101F'
 var uny6='[6]305F+1001F'
-var twDay=2
+var twDay=3
