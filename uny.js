@@ -1,8 +1,8 @@
 
-var uny1='[1]1002F(コカコーラ)'
-var uny2='[2]1201F+2003F(ギャラリー)'
-var uny3='[3]1501F'
+var uny1='[1]502F(きのたけ)'
+var uny2='[2]1002F(コカコーラ)+1501F'
+var uny3='[3]1201F'
 var uny4='[4]2002F+501F'
-var uny5='[5]21F+22F(グッズポテト)'
-var uny6='[6]305F+10F'
+var uny5='[5]22F(グッズポテト)'
+var uny6='[6]305F&lt;F↑&gt;'
 var twDay=6
