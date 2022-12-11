@@ -1,8 +1,8 @@
 
-var uny1='[1]1201F'
-var uny2='[2]1502F+1501F'
-var uny3='[3]2001F(大河)'
-var uny4='[4]1002F(コカコーラ)+2002F'
-var uny5='[5]2003F(ギャラリー)'
-var uny6='[6]10F'
-var twDay=10
+var uny1='[1]2003F(ギャラリー)+1001F'
+var uny2='[2]2001F(大河)&lt;全&gt;'
+var uny3='[3]1002F(コカコーラ)+2002F'
+var uny4='[4]10F&lt;全&gt;'
+var uny5='[5]22F(グッズポテト)+1101F'
+var uny6='[6]1502F+1501F'
+var twDay=11
