@@ -4,5 +4,5 @@ var uny2='[2]502F(きのたけ)'
 var uny3='[3]1201F+2003F(ギャラリー)'
 var uny4='[4]1501F'
 var uny5='[5]1101F+2002F'
-var uny6='[6]305F+1001F【N】'
-var twDay=8
+var uny6='[6]21F【SSR】'
+var twDay=9
