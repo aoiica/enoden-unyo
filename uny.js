@@ -1,5 +1,5 @@
 
-var uny1='[1]21F'
+var uny1='[1]21F&lt;全パン&gt;'
 var uny2='[2]501F+2003F'
 var uny3='[3]1502F'
 var uny4='[4]1002F(コカコーラ)+502F(きのたけ)'
