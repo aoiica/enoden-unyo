@@ -1,8 +1,8 @@
 
-var uny1='[1]21F&lt;全パン&gt;'
-var uny2='[2]501F+2003F'
-var uny3='[3]1502F'
+var uny1='[1]1501F+1101F'
+var uny2='[2]2002F+305F'
+var uny3='[3]1002F(コカコーラ)+502F(きのたけ)'
 var uny4='[4]1002F(コカコーラ)+502F(きのたけ)'
-var uny5='[5]1501F'
-var uny6='[6]1201F+305F</p></div><div'
+var uny5='[5]10F+2001F'
+var uny6='[6]501F+2003F'
 var twDay=6
