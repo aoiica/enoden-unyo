@@ -4,5 +4,5 @@ var uny2='[2]1001F+2002F'
 var uny3='[3]21F+10F'
 var uny4='[4]305F+1201F'
 var uny5='[5]2003F+1502F'
-var uny6='[6]2001F+501F'
+var uny6='[6]1501F+1101F【R】</p></div><div'
 var twDay=13
