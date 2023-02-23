@@ -1,5 +1,5 @@
 
-var uny1='[1]1201F+21F【R】'
+var uny1='[1]21F+1201F【R】'
 var uny2='[2]1101F+1502F【N】'
 var uny3='[3]501F+22F【N】'
 var uny4='[4]2002F+305F【R】'
