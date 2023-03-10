@@ -1,5 +1,5 @@
 
-var uny1='[1]21F+10F'
+var uny1='[1]10F</p></div><div'
 var uny2='[2]2001F(LION)+1201F'
 var uny3='[3]2002F+1002F(コカコーラ)'
 var uny4='[4]22F+1501F'
