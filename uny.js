@@ -1,8 +1,8 @@
 
 var uny1='[1]1002F(コカコーラ)+2002F'
-var uny2='[2]1502F'
+var uny2='[2]10F+1502F【N】'
 var uny3='[3]22F+1501F'
-var uny4='[4]1101F'
-var uny5='[5]1502F</p></div><div'
+var uny4='[4]305F+1101F多分【SR】'
+var uny5='[5]501F+1001F'
 var uny6='[6]2001F(LION)+1201F'
-var twDay=10
+var twDay=11
