@@ -1,8 +1,8 @@
 
-var uny1='[1]2001F(LION)'
-var uny2='[2]1501F+1002F(コカコーラ)'
-var uny3='[3]1101F'
-var uny4='[4]10F+1502F'
-var uny5='[5]2002F'
-var uny6='[6]22F</p></div><div'
-var twDay=17
+var uny1='[1]21F&lt;全&gt;'
+var uny2='[2]1001F&lt;全&gt;'
+var uny3='[3]10F+1502F'
+var uny4='[4]22F&lt;全&gt;'
+var uny5='[5]2002F&lt;全&gt;'
+var uny6='[6]1501F+1002F(コカコーラ)'
+var twDay=18
